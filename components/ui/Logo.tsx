@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 type LogoProps = {
@@ -8,15 +7,14 @@ type LogoProps = {
 
 export function Logo({ href = "/", inverse = false }: LogoProps) {
   const logo = (
-    <span className="brand brand-full">
-      <Image
-        alt="Loglime"
-        className="brand-logo-img"
-        height={48}
-        priority
-        src={inverse ? "/brand/logo-white-cropped.png" : "/brand/logo-jade-cropped.png"}
-        width={164}
-      />
+    <span className={inverse ? "brand brand-inverse" : "brand"}>
+      <span className="brand-dot-mark" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+        <span />
+      </span>
+      <span className="brand-word">Loglime</span>
     </span>
   );
 

@@ -6,6 +6,12 @@ const nextConfig: NextConfig = {
       {
         pathname: "/brand/**"
       }
+    ],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com"
+      }
     ]
   }
 };

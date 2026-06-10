@@ -1,9 +1,23 @@
 import type { Metadata } from "next";
-import { ArrowRight, Check } from "lucide-react";
-import { DashboardMock } from "@/components/marketing/DashboardMock";
+import Link from "next/link";
+import {
+  ArrowRight,
+  CalendarCheck,
+  Check,
+  CircleCheck,
+  Globe2,
+  Mail,
+  QrCode,
+  ShieldCheck,
+  Sparkles,
+  Star,
+  Store,
+  TrendingUp,
+  Users,
+  Utensils,
+  Zap
+} from "lucide-react";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Badge } from "@/components/ui/Badge";
-import { ButtonLink } from "@/components/ui/ButtonLink";
 import { SaasIcon, type SaasIconName } from "@/components/ui/SaasIcon";
 import { createMetadata, organizationJsonLd, restaurantSoftwareJsonLd, routeMeta, websiteJsonLd } from "@/lib/seo";
 
@@ -11,97 +25,109 @@ export const metadata: Metadata = createMetadata(routeMeta("/"));
 
 const trustLogos = ["brioche & co", "northwind cafe", "paloma grill", "verda kitchen", "kindred bites", "harbor qsr"];
 
-const suiteProducts: {
+const stats = [
+  {
+    value: "120+",
+    label: "restaurant apps launched",
+    icon: Globe2
+  },
+  {
+    value: "38%",
+    label: "average repeat guest lift",
+    icon: Users
+  },
+  {
+    value: "4.8x",
+    label: "more direct customer actions",
+    icon: ShieldCheck
+  }
+];
+
+const reasons = [
+  "Customer-facing app packages restaurants can understand quickly",
+  "Digital menu, ordering, booking and loyalty modules under one brand",
+  "Launch assets for QR codes, website CTAs and social profile links",
+  "A sales-friendly offer that does not force a POS replacement"
+];
+
+const products: {
   title: string;
   copy: string;
   icon: SaasIconName;
-  tone: "coral" | "teal" | "purple" | "amber" | "blue";
+  label: string;
+  tone: string;
 }[] = [
   {
-    title: "Ordering app",
-    copy: "Online orders & pickup",
+    title: "Online ordering app",
+    copy: "Give restaurants their own direct pickup, delivery and dine-in ordering flow with branded menus, item options and order totals.",
     icon: "dashboard-browsing",
-    tone: "coral"
-  },
-  {
-    title: "Menu app",
-    copy: "Digital menu & QR",
-    icon: "calendar-check",
-    tone: "teal"
-  },
-  {
-    title: "Booking app",
-    copy: "Tables & reservations",
-    icon: "user-group",
-    tone: "purple"
-  },
-  {
-    title: "Loyalty app",
-    copy: "Offers & repeat guests",
-    icon: "task-done01",
-    tone: "amber"
-  },
-  {
-    title: "Growth dashboard",
-    copy: "Sales & app insights",
-    icon: "analytics-up",
+    label: "Orders",
     tone: "blue"
+  },
+  {
+    title: "Digital menu app",
+    copy: "Create QR-ready menus with categories, prices, photos, descriptions and availability that stay easy for guests to browse.",
+    icon: "calendar-check",
+    label: "Menus",
+    tone: "green"
+  },
+  {
+    title: "Table booking app",
+    copy: "Offer a clean booking request flow for restaurants that want more reservations without a heavy reservation system.",
+    icon: "user-group",
+    label: "Bookings",
+    tone: "cyan"
+  },
+  {
+    title: "Loyalty and offers app",
+    copy: "Help restaurants bring guests back with offers, repeat-visit rewards, promo links and customer update campaigns.",
+    icon: "task-done01",
+    label: "Loyalty",
+    tone: "lime"
   }
 ];
 
-const steps = [
+const integrationsTop = ["QR codes", "Website buttons", "Instagram", "Google Business", "WhatsApp", "Stripe-ready", "Analytics", "Email updates"];
+const integrationsBottom = ["Menu imports", "Order exports", "Customer lists", "Promo links", "Booking forms", "SMS-ready", "Webhook-ready", "CSV reports"];
+
+const industries = [
   {
-    eyebrow: "STEP 01",
-    title: "Pick your app package",
-    copy: "Choose ordering, menu, bookings, loyalty or a full restaurant app bundle."
+    title: "Cafes and bakeries",
+    copy: "Launch a digital menu and pickup ordering app that makes daily specials, preorders and repeat visits easier to sell.",
+    icon: Utensils
   },
   {
-    eyebrow: "STEP 02",
-    title: "Add brand and menu",
-    copy: "We set up your logo, food menu, prices, photos, timings and customer flow."
+    title: "Quick-service brands",
+    copy: "Package direct ordering, QR menus and promo offers for restaurants that need faster customer actions from mobile guests.",
+    icon: Zap
   },
   {
-    eyebrow: "STEP 03",
-    title: "Launch and sell",
-    copy: "Your restaurant gets a live app for orders, bookings and repeat customers."
+    title: "Dine-in restaurants",
+    copy: "Add booking requests, table-ready QR menus and loyalty flows without asking the restaurant to rebuild operations.",
+    icon: Store
   }
 ];
 
-const pricing = [
+const testimonials = [
   {
-    name: "Starter",
-    price: "$29",
-    suffix: "/mo",
-    copy: "For one restaurant app",
-    bullets: ["Digital menu app", "Basic setup support"],
-    cta: "Start package",
-    href: "/signup",
-    popular: false,
-    dark: false
+    quote:
+      "Loglime made the app pitch simple for restaurant owners. We lead with direct orders and QR menus, then expand into booking and loyalty when the client is ready.",
+    name: "Maya Reed",
+    role: "Restaurant growth consultant"
   },
   {
-    name: "Team",
-    price: "$79",
-    suffix: "/mo",
-    copy: "For restaurants taking orders",
-    bullets: ["Ordering + booking apps", "Priority support"],
-    cta: "Get Growth",
-    href: "/signup",
-    popular: true,
-    dark: false
+    quote:
+      "The strongest part is how fast the offer is to explain. It feels like a restaurant app launch package, not a complicated system implementation.",
+    name: "Jordan Malik",
+    role: "Digital studio owner"
   },
   {
-    name: "Enterprise",
-    price: "Talk",
-    suffix: "",
-    copy: "Custom branded rollout",
-    bullets: ["Full app bundle", "Dedicated launch help"],
-    cta: "Contact sales",
-    href: "/contact",
-    popular: false,
-    dark: true
+    quote:
+      "We needed branded apps that restaurants could actually use. The flow from menu assets to live customer actions is clear and easy to demo.",
+    name: "Nora Patel",
+    role: "Hospitality app partner"
   }
-] as const;
+];
 
 const faqs = [
   {
@@ -137,162 +163,260 @@ const faqJsonLd = {
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="home-template">
       <JsonLd data={[organizationJsonLd, websiteJsonLd, restaurantSoftwareJsonLd, faqJsonLd]} />
-      <section className="hero hero-classic hero-wireframe">
-        <div className="container">
-          <div className="hero-card">
-            <span className="hero-sticker">demo app ready</span>
-            <div className="hero-center">
-              <Badge>Apps for restaurants</Badge>
-              <h1 className="display">
-                Restaurant apps that help you <span>sell more.</span>
-              </h1>
-              <p className="sub">
-                Loglime sells ready-to-launch web and mobile apps for restaurants: digital menu, online ordering, table
-                booking, loyalty, offers and customer updates.
-              </p>
-              <div className="cta-row">
-                <ButtonLink href="/signup" size="lg">
-                  Get a restaurant app
-                </ButtonLink>
-                <ButtonLink href="/demo" variant="outline" size="lg">
-                  Book a demo <ArrowRight size={16} />
-                </ButtonLink>
+
+      <section className="home-hero">
+        <div className="home-hero-gradient" aria-hidden="true" />
+        <div className="home-hero-image" aria-hidden="true" />
+
+        <div className="home-hero-content">
+          <span className="home-badge">Smart restaurant app software</span>
+          <h1>Sell restaurant apps that bring more orders, bookings and repeat guests.</h1>
+          <p>
+            Loglime helps you launch branded customer apps for restaurants: digital menus, online ordering, table
+            bookings, loyalty offers and direct customer updates.
+          </p>
+          <div className="home-hero-actions">
+            <Link className="home-btn home-btn-dark" href="/demo">
+              Request a demo
+            </Link>
+            <Link className="home-btn home-btn-glass" href="/signup">
+              Start 14-Day Free Trial
+            </Link>
+          </div>
+
+          <div className="home-trust">
+            <p>Powering direct restaurant growth globally</p>
+            <div className="home-logo-mask">
+              <div className="home-logo-track">
+                {[...trustLogos, ...trustLogos].map((logo, index) => (
+                  <span key={`${logo}-${index}`}>{logo}</span>
+                ))}
               </div>
-              <p className="micro">Free demo &middot; branded setup &middot; launch support</p>
-            </div>
-            <div className="hero-shot-wrap">
-              <DashboardMock />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="trust-band" aria-label="Trusted by teams" id="customers">
-        <div className="container trust-wrap">
-          <p>Built for restaurants, cafes, bakeries, QSRs and cloud kitchens</p>
-          <div className="trust-logos">
-            {trustLogos.map((logo) => (
-              <span key={logo}>{logo}</span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <div className="section-head center">
-            <p className="eyebrow">Restaurant app packages</p>
-            <h2 className="h2">Choose the apps your restaurant wants to sell through.</h2>
-          </div>
-          <div className="suite-grid">
-            {suiteProducts.map((product) => (
-              <article className={`suite-card suite-${product.tone}`} key={product.title}>
-                <span className="mega-icon">
-                  <SaasIcon name={product.icon} size={23} />
+      <section className="home-stats-section">
+        <div className="container home-stats-grid">
+          {stats.map((stat) => {
+            const Icon = stat.icon;
+            return (
+              <article className="home-stat-card" key={stat.label}>
+                <span>
+                  <Icon size={30} />
                 </span>
-                <h3 className="h3">{product.title}</h3>
-                <p>{product.copy}</p>
-                <span className="suite-line" />
+                <div>
+                  <strong>{stat.value}</strong>
+                  <p>{stat.label}</p>
+                </div>
               </article>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </section>
 
-      <section className="section section-soft">
-        <div className="container">
-          <div className="section-head center">
-            <p className="eyebrow">How it works</p>
-            <h2 className="h2">From menu to live app without the messy build.</h2>
+      <section className="home-split-section" id="customers-story">
+        <div className="container home-split-grid">
+          <div className="home-split-copy">
+            <span className="home-badge">Reasons to select us</span>
+            <h2>Restaurant apps that are easier to sell and faster to launch.</h2>
+            <p>
+              Loglime keeps the offer focused on the digital experience guests see. Restaurants get practical app
+              packages that support revenue, repeat visits and customer convenience without a complicated operational
+              rebuild.
+            </p>
+            <ul className="home-check-list">
+              {reasons.map((reason) => (
+                <li key={reason}>
+                  <span>
+                    <Check size={14} />
+                  </span>
+                  {reason}
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="grid-3">
-            {steps.map((step) => (
-              <article className="step-card" key={step.title}>
-                <p className="eyebrow">{step.eyebrow}</p>
-                <h3 className="h3">{step.title}</h3>
-                <p className="body">{step.copy}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      <section className="section" id="customers-story">
-        <div className="container testimonial-card testimonial-wireframe">
-          <div>
-            <blockquote>
-              &ldquo;We wanted a simple app our customers could actually use. Loglime helped us launch ordering, menu updates and
-              offers without hiring a full tech team.&rdquo;
-            </blockquote>
-            <div className="customer-row">
-              <span>JM</span>
-              <p>
-                <strong>Jules M.</strong>
-                <small>Owner, Brioche & Co. (3 locations)</small>
-              </p>
+          <div className="home-visual-card" aria-label="Restaurant app launch preview">
+            <div className="home-restaurant-visual" />
+            <div className="home-floating-card home-floating-top">
+              <small>MENU APP</small>
+              <strong>Live</strong>
+              <p>QR and website ready</p>
+            </div>
+            <div className="home-floating-card home-floating-left">
+              <small>DIRECT ACTIONS</small>
+              <strong>4.8x</strong>
+              <p>More guest activity</p>
+            </div>
+            <div className="home-floating-card home-floating-right">
+              <small>ORDERS TODAY</small>
+              <strong>128</strong>
+              <p>Pickup and dine-in</p>
             </div>
           </div>
-          <div className="customer-photo">
-            <span>Customer story</span>
-            <strong>Brioche & Co.</strong>
-          </div>
         </div>
       </section>
 
-      <section className="section section-soft">
+      <section className="home-feature-section">
         <div className="container">
-          <div className="section-head center">
-            <p className="eyebrow">Pricing</p>
-            <h2 className="h2">Pay for the restaurant app package you launch.</h2>
+          <div className="home-section-head">
+            <span className="home-badge">Customer-facing app suite</span>
+            <h2>Modern app packages built for restaurant sales.</h2>
+            <p>Pick the product a restaurant understands first, then expand into a full customer app bundle later.</p>
           </div>
-          <div className="grid-3">
-            {pricing.map((plan) => (
-              <article className={`price-card ${plan.popular ? "featured" : ""} ${plan.dark ? "dark-plan" : ""}`} key={plan.name}>
-                <div className="price-head">
-                  <h3 className="h3">{plan.name}</h3>
-                  {plan.popular ? <Badge>popular</Badge> : null}
+
+          <div className="home-feature-grid">
+            {products.map((product) => (
+              <article className={`home-feature-card home-feature-${product.tone}`} key={product.title}>
+                <div className="home-feature-visual">
+                  <span className="home-feature-icon">
+                    <SaasIcon name={product.icon} size={28} />
+                  </span>
+                  <div className="home-feature-lines" aria-hidden="true">
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                  <strong>{product.label}</strong>
                 </div>
-                <div className="price">
-                  {plan.price}
-                  {plan.suffix ? <small>{plan.suffix}</small> : null}
+                <div className="home-feature-copy">
+                  <h3>{product.title}</h3>
+                  <p>{product.copy}</p>
+                  <Link href="/products/restaurant">
+                    Learn more
+                    <ArrowRight size={15} />
+                  </Link>
                 </div>
-                <p className="body">{plan.copy}</p>
-                <div className="price-bullets">
-                  {plan.bullets.map((bullet) => (
-                    <span key={bullet}>
-                      <Check size={15} />
-                      {bullet}
-                    </span>
-                  ))}
-                </div>
-                <ButtonLink href={plan.href} variant={plan.dark ? "dark" : plan.popular ? "primary" : "outline"}>
-                  {plan.cta}
-                </ButtonLink>
               </article>
             ))}
+
+            <article className="home-feature-card home-feature-cta">
+              <div>
+                <span className="home-badge">Launch bundle</span>
+                <h3>Need a full restaurant app offer?</h3>
+                <p>
+                  Combine menu, ordering, booking, loyalty and customer updates into one branded restaurant app package.
+                </p>
+              </div>
+              <Link className="home-btn home-btn-dark" href="/demo">
+                Book a walkthrough
+                <ArrowRight size={16} />
+              </Link>
+            </article>
           </div>
         </div>
       </section>
 
-      <section className="section">
-        <div className="container faq-grid">
-          <div className="section-head">
-            <p className="eyebrow">FAQ</p>
-            <h2 className="h2">Common questions.</h2>
-            <p className="body">
-              Can&apos;t find it? Email <a href="mailto:hi@loglime.com">hi@loglime.com</a>
+      <section className="home-integrations-section">
+        <div className="container">
+          <div className="home-section-head">
+            <span className="home-badge">Launch channels</span>
+            <h2>Promote each restaurant app everywhere guests already look.</h2>
+            <p>
+              Use simple app links and restaurant-ready launch assets across QR codes, websites, social profiles and
+              customer update channels.
             </p>
           </div>
-          <div className="faq-list faq-accordion">
+        </div>
+        <div className="home-integration-marquees">
+          <div className="home-integration-track">
+            {[...integrationsTop, ...integrationsTop].map((item, index) => (
+              <span key={`${item}-${index}`}>
+                <QrCode size={22} />
+                {item}
+              </span>
+            ))}
+          </div>
+          <div className="home-integration-track home-integration-track-reverse">
+            {[...integrationsBottom, ...integrationsBottom].map((item, index) => (
+              <span key={`${item}-${index}`}>
+                <Mail size={22} />
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-industries-section">
+        <div className="container">
+          <div className="home-section-head">
+            <span className="home-badge">Restaurant segments</span>
+            <h2>One app direction, different restaurant sales stories.</h2>
+            <p>
+              Keep the Loglime brand broad, while the v1 offer stays tightly focused on apps restaurants can sell and
+              launch quickly.
+            </p>
+          </div>
+
+          <div className="home-industry-grid">
+            {industries.map((industry) => {
+              const Icon = industry.icon;
+              return (
+                <article className="home-industry-card" key={industry.title}>
+                  <span>
+                    <Icon size={28} />
+                  </span>
+                  <h3>{industry.title}</h3>
+                  <p>{industry.copy}</p>
+                  <Link href="/solutions/restaurants">
+                    Explore fit
+                    <ArrowRight size={15} />
+                  </Link>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-testimonials-section">
+        <div className="container">
+          <div className="home-section-head">
+            <span className="home-badge">Customer notes</span>
+            <h2>Built for teams selling apps to restaurants.</h2>
+          </div>
+        </div>
+        <div className="home-testimonial-mask">
+          <div className="home-testimonial-track">
+            {[...testimonials, ...testimonials].map((testimonial, index) => (
+              <article className="home-testimonial-card" key={`${testimonial.name}-${index}`}>
+                <div className="home-stars" aria-label="Five star rating">
+                  {[0, 1, 2, 3, 4].map((star) => (
+                    <Star fill="currentColor" key={star} size={16} />
+                  ))}
+                </div>
+                <p>{testimonial.quote}</p>
+                <div>
+                  <strong>{testimonial.name}</strong>
+                  <small>{testimonial.role}</small>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-faq-section" id="faq">
+        <div className="container">
+          <div className="home-section-head">
+            <span className="home-badge">Faq&apos;s</span>
+            <h2>Commonly asked questions.</h2>
+            <p>Detailed answers for restaurant owners comparing customer-facing app packages.</p>
+          </div>
+
+          <div className="home-faq-list">
             {faqs.map((faq, index) => (
-              <details className="faq-accordion-item" key={faq.q} open={index === 0}>
+              <details className="home-faq-item" key={faq.q} open={index === 0}>
                 <summary>
                   <span>{faq.q}</span>
-                  <span className="faq-toggle" aria-hidden="true" />
+                  <span className="home-faq-toggle" aria-hidden="true" />
                 </summary>
-                <div className="faq-answer">
+                <div>
                   <p>{faq.a}</p>
                 </div>
               </details>
@@ -301,19 +425,35 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="dark-closer">
-        <div className="container dark-closer-inner dark-closer-center">
-          <div>
-            <h2>Ready to sell your restaurant app?</h2>
-            <p>Pick an app package, share your menu and brand, and launch a customer-facing app for your restaurant.</p>
-          </div>
-          <div className="cta-row">
-            <ButtonLink href="/signup" size="lg">
-              Get a restaurant app
-            </ButtonLink>
-            <ButtonLink href="/demo" variant="outline" size="lg">
-              Book a demo <ArrowRight size={16} />
-            </ButtonLink>
+      <section className="home-newsletter-section">
+        <div className="container">
+          <div className="home-newsletter-card">
+            <span className="home-badge">
+              <Sparkles size={14} />
+              Launch
+            </span>
+            <h2>Start selling smarter restaurant apps today.</h2>
+            <p>
+              Book a walkthrough and see how Loglime packages ordering, menu, booking and loyalty apps for restaurants.
+            </p>
+            <form className="home-newsletter-form">
+              <input aria-label="Email address" placeholder="Enter your email" type="email" />
+              <Link className="home-btn home-btn-dark" href="/signup">
+                Get started
+                <ArrowRight size={16} />
+              </Link>
+            </form>
+            <div className="home-proof-row">
+              <span>
+                <CircleCheck size={18} /> No credit card required
+              </span>
+              <span>
+                <CalendarCheck size={18} /> 14-Day free trial
+              </span>
+              <span>
+                <TrendingUp size={18} /> Built for restaurant sales
+              </span>
+            </div>
           </div>
         </div>
       </section>

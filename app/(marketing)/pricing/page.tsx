@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Check } from "lucide-react";
+import { Check, CircleCheck, Sparkles } from "lucide-react";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/Badge";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { createMetadata, routeMeta } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata(routeMeta("/pricing"));
@@ -49,8 +48,8 @@ export default function PricingPage() {
           </p>
         </div>
       </section>
-      <section className="section-tight">
-        <div className="container grid-3">
+      <section className="nex-section nex-section-white">
+        <div className="container nex-pricing-grid">
           {[
             {
               name: "Menu Starter",
@@ -72,9 +71,11 @@ export default function PricingPage() {
               features: ["Full app bundle", "Multi-location setup", "Custom flows", "Dedicated launch help"]
             }
           ].map((tier) => (
-            <article className={`card price-card ${tier.featured ? "featured" : ""}`} key={tier.name}>
-              {tier.featured ? <Badge>Recommended</Badge> : null}
-              <h2 className="h3">{tier.name}</h2>
+            <article className={`nex-price-card ${tier.featured ? "featured" : ""}`} key={tier.name}>
+              <div className="price-head">
+                <h3>{tier.name}</h3>
+                {tier.featured ? <span className="nex-small-pill">Popular</span> : null}
+              </div>
               <div className="price">
                 {tier.price}
                 {tier.price.startsWith("$") ? <small> /mo</small> : null}
@@ -96,15 +97,41 @@ export default function PricingPage() {
         </div>
       </section>
       <section className="section">
-        <div className="container">
-          <SectionHeading eyebrow="FAQ" title="Pricing questions, briefly answered." />
-          <div className="grid-3">
-            {faqs.map((faq) => (
-              <article className="card card-pad" key={faq.q}>
-                <h2 className="h3">{faq.q}</h2>
-                <p className="body">{faq.a}</p>
-              </article>
+        <div className="container nex-faq-grid">
+          <div className="nex-section-head">
+            <Badge>FAQ</Badge>
+            <h2>Pricing questions, briefly answered.</h2>
+            <p>Clear packages for restaurants that want customer-facing apps without a heavy platform rebuild.</p>
+          </div>
+          <div className="faq-list faq-accordion">
+            {faqs.map((faq, index) => (
+              <details className="faq-accordion-item" key={faq.q} open={index === 0}>
+                <summary>
+                  <span>{faq.q}</span>
+                  <span className="faq-toggle" aria-hidden="true" />
+                </summary>
+                <div className="faq-answer">
+                  <p>{faq.a}</p>
+                </div>
+              </details>
             ))}
+          </div>
+        </div>
+      </section>
+      <section className="nex-closer">
+        <div className="container">
+          <span className="nex-small-pill">
+            <Sparkles size={14} /> Start
+          </span>
+          <h2>Choose a package and launch the first restaurant app.</h2>
+          <p>Start small with a menu app, or launch a full ordering and loyalty bundle when the restaurant is ready.</p>
+          <div className="nex-proof-row">
+            <span>
+              <CircleCheck size={18} /> Guided setup
+            </span>
+            <span>
+              <CircleCheck size={18} /> Restaurant-first app packages
+            </span>
           </div>
         </div>
       </section>

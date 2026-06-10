@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { ArrowRight, ChevronDown, Menu } from "lucide-react";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Logo } from "@/components/ui/Logo";
@@ -20,7 +19,54 @@ type MegaGroup = {
   items: MegaItem[];
 };
 
-type HeaderVariant = "classic" | "split" | "banner";
+const companyGroups: MegaGroup[] = [
+  {
+    title: "Company",
+    items: [
+      {
+        title: "About Loglime",
+        copy: "Restaurant app packages for brands that want more direct customers.",
+        href: "/contact",
+        icon: "building03"
+      },
+      {
+        title: "Launch service",
+        copy: "We help restaurants move from menu assets to a live app.",
+        href: "/demo",
+        icon: "task-done01"
+      },
+      {
+        title: "Contact sales",
+        copy: "Talk through fit, rollout and pricing for restaurant clients.",
+        href: "/contact",
+        icon: "mail02"
+      }
+    ]
+  },
+  {
+    title: "Explore",
+    items: [
+      {
+        title: "Pricing",
+        copy: "Simple packages for digital menus, ordering and loyalty apps.",
+        href: "/pricing",
+        icon: "wallet-cards"
+      },
+      {
+        title: "Security",
+        copy: "How restaurant, customer and order data is handled.",
+        href: "/security",
+        icon: "shield01"
+      },
+      {
+        title: "Demo",
+        copy: "Preview the app experience before launch.",
+        href: "/demo",
+        icon: "dashboard-browsing"
+      }
+    ]
+  }
+];
 
 const platformGroups: MegaGroup[] = [
   {
@@ -71,65 +117,23 @@ const platformGroups: MegaGroup[] = [
   }
 ];
 
-const solutionGroups: MegaGroup[] = [
-  {
-    title: "By restaurant type",
-    items: [
-      {
-        title: "Full-service restaurants",
-        copy: "Ordering, menu and booking apps for table-service brands.",
-        href: "/solutions/restaurants",
-        icon: "building03"
-      },
-      {
-        title: "Quick service",
-        copy: "Fast ordering apps for takeaway, delivery and counter service.",
-        href: "/solutions/restaurants#quick-service",
-        icon: "delivery-truck01"
-      },
-      {
-        title: "Cafes and bakeries",
-        copy: "Menu, loyalty and pre-order apps for repeat customers.",
-        href: "/solutions/restaurants#cafes",
-        icon: "wallet-cards"
-      }
-    ]
-  },
-  {
-    title: "By team",
-    items: [
-      {
-        title: "Owners",
-        copy: "Launch branded apps without hiring a full product team.",
-        href: "/solutions/restaurants#owners",
-        icon: "analytics-up"
-      },
-      {
-        title: "Managers",
-        copy: "Update menus, offers and customer-facing app content.",
-        href: "/solutions/restaurants#managers",
-        icon: "shield01"
-      },
-      {
-        title: "Servers",
-        copy: "Receive online orders and booking requests in a clean flow.",
-        href: "/solutions/restaurants#servers",
-        icon: "payment-success01"
-      }
-    ]
-  }
-];
-
 const resourceGroups: MegaGroup[] = [
   {
     title: "Learn",
     items: [
       {
+        title: "Insights blog",
+        copy: "Design, launch and growth notes for app-led restaurant sales.",
+        href: "/blog",
+        icon: "dashboard-browsing",
+        highlight: true
+      },
+      {
         title: "Product updates",
         copy: "New app modules, templates and restaurant launch features.",
         href: "/products/restaurant#updates",
         icon: "notification03",
-        highlight: true
+        highlight: false
       },
       {
         title: "Launch guide",
@@ -171,23 +175,13 @@ const resourceGroups: MegaGroup[] = [
 ];
 
 const mobileLinks = [
-  ["Products", "/products/restaurant"],
-  ["Solutions", "/solutions/restaurants"],
-  ["Pricing", "/pricing"],
+  ["Company", "/contact"],
+  ["Platform", "/products/restaurant"],
   ["Resources", "/demo"],
-  ["Customers", "/#customers-story"],
-  ["Book a demo", "/demo"],
-  ["Contact", "/contact"],
-  ["Open demo app", "/app/dashboard"]
+  ["Blog", "/blog"],
+  ["Pricing", "/pricing"],
+  ["Get started", "/signup"]
 ];
-
-function normalizeVariant(value: string | null): HeaderVariant {
-  if (value === "split" || value === "banner") {
-    return value;
-  }
-
-  return "classic";
-}
 
 function MegaMenu({
   label,
@@ -248,48 +242,27 @@ function MegaMenu({
 }
 
 export function SiteHeader() {
-  const [variant, setVariant] = useState<HeaderVariant>("classic");
-
-  useEffect(() => {
-    const timeoutId = window.setTimeout(() => {
-      setVariant(normalizeVariant(new URLSearchParams(window.location.search).get("header")));
-    }, 0);
-
-    return () => window.clearTimeout(timeoutId);
-  }, []);
-
   return (
-    <div className={`site-header-shell header-${variant}`}>
-      {variant === "banner" ? (
-        <Link className="announcement-bar" href="/demo">
-          Restaurant app packages are ready for demos
-          <span>
-            Book a walkthrough <ArrowRight size={13} />
-          </span>
-        </Link>
-      ) : null}
+    <div className="site-header-shell">
       <header className="site-header">
         <Logo />
         <nav className="site-nav" aria-label="Main navigation">
           <MegaMenu
-            groups={platformGroups}
-            label="Products"
-            sideCopy="Preview a restaurant app package with ordering, digital menu, bookings and customer updates."
-            sideCta="View sample app"
-            sideHref="/app/dashboard"
-            sideTitle="Sample restaurant app"
+            groups={companyGroups}
+            label="Company"
+            sideCopy="Loglime stays focused on customer-facing restaurant apps, not a heavy POS replacement."
+            sideCta="Talk to us"
+            sideHref="/contact"
+            sideTitle="Restaurant app studio"
           />
           <MegaMenu
-            groups={solutionGroups}
-            label="Solutions"
-            sideCopy="Sell apps to cafes, QSRs, bakeries and full-service restaurants without overcomplicating the pitch."
+            groups={platformGroups}
+            label="Platform"
+            sideCopy="Sell digital menu, ordering, booking and loyalty apps with a clean launch process."
             sideCta="Explore restaurant apps"
-            sideHref="/solutions/restaurants"
-            sideTitle="Built for restaurant sales"
+            sideHref="/products/restaurant"
+            sideTitle="Customer app modules"
           />
-          <Link className="nav-link" href="/pricing">
-            Pricing
-          </Link>
           <MegaMenu
             align="right"
             groups={resourceGroups}
@@ -299,19 +272,13 @@ export function SiteHeader() {
             sideHref="/demo"
             sideTitle="Restaurant app launch"
           />
-          <Link className="nav-link" href="/#customers-story">
-            Customers
+          <Link className="nav-link" href="/pricing">
+            Pricing
           </Link>
         </nav>
         <div className="site-actions">
-          <Link className="btn btn-ghost btn-sm" href="/login">
-            Log in
-          </Link>
-          <ButtonLink href="/demo" variant="outline" size="sm">
-            Book a demo
-          </ButtonLink>
           <ButtonLink href="/signup" size="sm">
-            Start free
+            Get started
           </ButtonLink>
         </div>
         <details className="mobile-nav">

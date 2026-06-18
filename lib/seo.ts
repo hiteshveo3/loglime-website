@@ -21,7 +21,7 @@ export const marketingRoutes: MarketingRoute[] = [
   {
     path: "/pricing",
     title: "Pricing - Loglime Restaurant Apps",
-    description: "Simple pricing for restaurant app packages, from digital menus to ordering, booking and loyalty apps.",
+    description: "One-time restaurant app pricing with zero Loglime commission on orders and a savings calculator.",
     priority: 0.9,
     changeFrequency: "monthly"
   },

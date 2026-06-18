@@ -23,6 +23,7 @@ import {
   Search,
   Users,
 } from "lucide-react";
+import { SubscribeForm } from "@/components/marketing/SubscribeForm";
 
 export const metadata: Metadata = {
   title: "How to scale your property portfolio - NexSaS",
@@ -315,10 +316,7 @@ function ArticleSidebar() {
           </span>
           <h4>Property Insights</h4>
           <p>Get the latest scaling tips and feature updates delivered to your inbox weekly.</p>
-          <form>
-            <input placeholder="Email address" type="email" />
-            <button type="button">Subscribe Now</button>
-          </form>
+          <SubscribeForm buttonLabel="Subscribe Now" source="blog article sidebar newsletter" />
         </section>
       </div>
     </aside>

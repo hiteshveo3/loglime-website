@@ -29,7 +29,7 @@ export default function ContactPage() {
               <article
                 className="nex-soft-card"
                 key={title}
-                style={{ "--card-glow": index === 0 ? "rgba(131, 231, 238, 0.34)" : "rgba(198, 245, 111, 0.24)" } as CSSProperties}
+                style={{ "--card-glow": index === 0 ? "rgba(200, 241, 53, 0.34)" : "rgba(200, 241, 53, 0.24)" } as CSSProperties}
               >
                 <span className="feature-icon">
                   <Icon size={22} />

@@ -187,7 +187,6 @@ function MegaMenu({
   label,
   groups,
   sideTitle,
-  sideCopy,
   sideHref,
   sideCta,
   align = "left"
@@ -195,7 +194,7 @@ function MegaMenu({
   label: string;
   groups: MegaGroup[];
   sideTitle: string;
-  sideCopy: string;
+  sideCopy?: string;
   sideHref: string;
   sideCta: string;
   align?: "left" | "right";
@@ -218,7 +217,6 @@ function MegaMenu({
                   </span>
                   <span>
                     <strong>{item.title}</strong>
-                    <small>{item.copy}</small>
                   </span>
                 </Link>
               ))}
@@ -229,7 +227,6 @@ function MegaMenu({
               <SaasIcon name="dashboard-browsing" size={22} />
             </span>
             <strong>{sideTitle}</strong>
-            <p>{sideCopy}</p>
             <Link href={sideHref}>
               {sideCta}
               <ArrowRight size={14} />

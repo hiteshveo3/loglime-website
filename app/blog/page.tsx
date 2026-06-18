@@ -16,6 +16,7 @@ import {
   Star,
   Users
 } from "lucide-react";
+import { SubscribeForm } from "@/components/marketing/SubscribeForm";
 
 export const metadata: Metadata = {
   title: "Blog Page - NexSaS",
@@ -294,10 +295,7 @@ function BlogSidebar() {
         </span>
         <h4>Never miss an update</h4>
         <p>Get the latest articles delivered straight to your inbox.</p>
-        <form>
-          <input placeholder="Email address" type="email" />
-          <button type="button">Subscribe</button>
-        </form>
+        <SubscribeForm buttonLabel="Subscribe" source="blog sidebar newsletter" />
       </section>
     </aside>
   );

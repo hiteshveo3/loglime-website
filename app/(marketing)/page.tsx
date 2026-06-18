@@ -17,6 +17,7 @@ import {
   Utensils,
   Zap
 } from "lucide-react";
+import { SubscribeForm } from "@/components/marketing/SubscribeForm";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { SaasIcon, type SaasIconName } from "@/components/ui/SaasIcon";
 import { createMetadata, organizationJsonLd, restaurantSoftwareJsonLd, routeMeta, websiteJsonLd } from "@/lib/seo";
@@ -436,13 +437,14 @@ export default function HomePage() {
             <p>
               Book a walkthrough and see how Loglime packages ordering, menu, booking and loyalty apps for restaurants.
             </p>
-            <form className="home-newsletter-form">
-              <input aria-label="Email address" placeholder="Enter your email" type="email" />
-              <Link className="home-btn home-btn-dark" href="/signup">
-                Get started
-                <ArrowRight size={16} />
-              </Link>
-            </form>
+            <SubscribeForm
+              buttonClassName="home-btn home-btn-dark"
+              buttonIcon={<ArrowRight size={16} />}
+              buttonLabel="Get started"
+              className="home-newsletter-form"
+              placeholder="Enter your email"
+              source="homepage newsletter"
+            />
             <div className="home-proof-row">
               <span>
                 <CircleCheck size={18} /> No credit card required

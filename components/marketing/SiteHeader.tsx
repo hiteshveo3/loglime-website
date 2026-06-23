@@ -1,175 +1,66 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, ChevronDown, Menu } from "lucide-react";
-import { ButtonLink } from "@/components/ui/ButtonLink";
+import { ChevronDown, Menu } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
-import { SaasIcon, type SaasIconName } from "@/components/ui/SaasIcon";
 
 type MegaItem = {
   title: string;
-  copy: string;
   href: string;
-  icon: SaasIconName;
-  highlight?: boolean;
+  icon: string;
 };
 
 type MegaGroup = {
-  title: string;
   items: MegaItem[];
+  narrow?: boolean;
 };
 
-const companyGroups: MegaGroup[] = [
+const productGroups: MegaGroup[] = [
   {
-    title: "Company",
     items: [
-      {
-        title: "About Loglime",
-        copy: "Restaurant app packages for brands that want more direct customers.",
-        href: "/contact",
-        icon: "building03"
-      },
-      {
-        title: "Launch service",
-        copy: "We help restaurants move from menu assets to a live app.",
-        href: "/demo",
-        icon: "task-done01"
-      },
-      {
-        title: "Contact sales",
-        copy: "Talk through fit, rollout and pricing for restaurant clients.",
-        href: "/contact",
-        icon: "mail02"
-      }
-    ]
-  },
-  {
-    title: "Explore",
-    items: [
-      {
-        title: "Pricing",
-        copy: "Simple packages for digital menus, ordering and loyalty apps.",
-        href: "/pricing",
-        icon: "wallet-cards"
-      },
-      {
-        title: "Security",
-        copy: "How restaurant, customer and order data is handled.",
-        href: "/security",
-        icon: "shield01"
-      },
-      {
-        title: "Demo",
-        copy: "Preview the app experience before launch.",
-        href: "/demo",
-        icon: "dashboard-browsing"
-      }
+      { title: "Restaurant Apps", href: "/products/restaurant", icon: "📲" },
+      { title: "Online Ordering", href: "/products/restaurant#orders", icon: "🛍️" },
+      { title: "Digital Menu", href: "/products/restaurant#menu", icon: "📺" },
+      { title: "Table Booking", href: "/products/restaurant#bookings", icon: "🪑" },
+      { title: "Loyalty", href: "/products/restaurant#loyalty", icon: "🎁" },
+      { title: "QR Menu", href: "/products/restaurant#qr", icon: "🔳" }
     ]
   }
 ];
 
-const platformGroups: MegaGroup[] = [
+const solutionGroups: MegaGroup[] = [
   {
-    title: "Restaurant apps",
     items: [
-      {
-        title: "Online ordering app",
-        copy: "Let customers order pickup, delivery or dine-in from your brand.",
-        href: "/products/restaurant#floor",
-        icon: "dashboard-browsing"
-      },
-      {
-        title: "Digital menu app",
-        copy: "QR menu, categories, prices, item photos and availability.",
-        href: "/products/restaurant#orders",
-        icon: "task-done01"
-      },
-      {
-        title: "Booking app",
-        copy: "Table booking and reservation requests for restaurant guests.",
-        href: "/products/restaurant#kitchen",
-        icon: "notification03"
-      }
-    ]
-  },
-  {
-    title: "Growth tools",
-    items: [
-      {
-        title: "Loyalty app",
-        copy: "Offers, repeat customer rewards and promo updates.",
-        href: "/products/restaurant#menu",
-        icon: "calendar-check"
-      },
-      {
-        title: "App analytics",
-        copy: "See orders, popular items, customer actions and growth.",
-        href: "/products/restaurant#analytics",
-        icon: "analytics-up"
-      },
-      {
-        title: "Customer updates",
-        copy: "Collect customer details and send offer-ready updates.",
-        href: "/products/restaurant#roles",
-        icon: "user-group"
-      }
+      { title: "Cafes", href: "/solutions/restaurants", icon: "☕" },
+      { title: "Bakeries", href: "/solutions/restaurants", icon: "🥐" },
+      { title: "QSR", href: "/solutions/restaurants", icon: "🍔" },
+      { title: "Dine-in", href: "/solutions/restaurants", icon: "🍽️" },
+      { title: "Cloud Kitchen", href: "/solutions/restaurants", icon: "☁️" },
+      { title: "Franchise", href: "/solutions/restaurants", icon: "🏢" }
     ]
   }
 ];
 
 const resourceGroups: MegaGroup[] = [
   {
-    title: "Learn",
+    narrow: true,
     items: [
-      {
-        title: "Insights blog",
-        copy: "Design, launch and growth notes for app-led restaurant sales.",
-        href: "/blog",
-        icon: "dashboard-browsing",
-        highlight: true
-      },
-      {
-        title: "Product updates",
-        copy: "New app modules, templates and restaurant launch features.",
-        href: "/products/restaurant#updates",
-        icon: "notification03",
-        highlight: false
-      },
-      {
-        title: "Launch guide",
-        copy: "How a restaurant app goes from menu to live customer flow.",
-        href: "/demo",
-        icon: "task-done01"
-      },
-      {
-        title: "Security",
-        copy: "How restaurant app, customer and order data are protected.",
-        href: "/security",
-        icon: "shield01"
-      }
+      { title: "Blog", href: "/blog", icon: "" },
+      { title: "Case Studies", href: "/blog", icon: "" },
+      { title: "Guides", href: "/blog/how-to-scale-your-property-portfolio", icon: "" },
+      { title: "Help Center", href: "/contact", icon: "" },
+      { title: "FAQ", href: "/pricing#faq", icon: "" }
     ]
-  },
+  }
+];
+
+const companyGroups: MegaGroup[] = [
   {
-    title: "Company",
+    narrow: true,
     items: [
-      {
-        title: "Contact",
-        copy: "Talk through fit, rollout and support.",
-        href: "/contact",
-        icon: "mail02"
-      },
-      {
-        title: "Pricing",
-        copy: "Simple app packages for restaurants.",
-        href: "/pricing",
-        icon: "wallet-cards"
-      },
-      {
-        title: "Book a demo",
-        copy: "See a restaurant app package end to end.",
-        href: "/demo",
-        icon: "calendar-check"
-      }
+      { title: "About", href: "/contact", icon: "" },
+      { title: "Contact", href: "/contact", icon: "" },
+      { title: "Partners", href: "/demo", icon: "" }
     ]
   }
 ];
@@ -177,6 +68,8 @@ const resourceGroups: MegaGroup[] = [
 const mobileLinks = [
   ["Company", "/contact"],
   ["Platform", "/products/restaurant"],
+  ["Products", "/products/restaurant"],
+  ["Solutions", "/solutions/restaurants"],
   ["Resources", "/demo"],
   ["Blog", "/blog"],
   ["Pricing", "/pricing"],
@@ -185,53 +78,31 @@ const mobileLinks = [
 
 function MegaMenu({
   label,
-  groups,
-  sideTitle,
-  sideHref,
-  sideCta,
-  align = "left"
+  groups
 }: {
   label: string;
   groups: MegaGroup[];
-  sideTitle: string;
-  sideCopy?: string;
-  sideHref: string;
-  sideCta: string;
-  align?: "left" | "right";
 }) {
+  const isNarrow = groups.some((group) => group.narrow);
+
   return (
-    <div className={align === "right" ? "nav-item mega-align-right" : "nav-item"}>
+    <div className={isNarrow ? "nav-item nav-item-narrow" : "nav-item"}>
       <button aria-haspopup="true" className="nav-trigger" type="button">
         {label}
         <ChevronDown size={14} />
       </button>
-      <div className="mega-panel" role="menu">
-        <div className="mega-grid">
+      <div className={isNarrow ? "mega-panel mega-panel-narrow" : "mega-panel"} role="menu">
+        <div className={isNarrow ? "mega-list" : "mega-grid"}>
           {groups.map((group) => (
-            <div className="mega-group" key={group.title}>
-              <p className="mega-title">{group.title}</p>
+            <div className="mega-group" key={group.items.map((item) => item.title).join("-")}>
               {group.items.map((item) => (
-                <Link className={item.highlight ? "mega-item mega-highlight" : "mega-item"} href={item.href} key={item.title}>
-                  <span className="mega-icon">
-                    <SaasIcon name={item.icon} size={21} />
-                  </span>
-                  <span>
-                    <strong>{item.title}</strong>
-                  </span>
+                <Link className={isNarrow ? "mega-item mega-item-simple" : "mega-item"} href={item.href} key={item.title}>
+                  {item.icon ? <span className="mega-emoji">{item.icon}</span> : null}
+                  <strong>{item.title}</strong>
                 </Link>
               ))}
             </div>
           ))}
-          <div className="mega-side">
-            <span className="mega-icon mega-icon-dark">
-              <SaasIcon name="dashboard-browsing" size={22} />
-            </span>
-            <strong>{sideTitle}</strong>
-            <Link href={sideHref}>
-              {sideCta}
-              <ArrowRight size={14} />
-            </Link>
-          </div>
         </div>
       </div>
     </div>
@@ -244,39 +115,27 @@ export function SiteHeader() {
       <header className="site-header">
         <Logo />
         <nav className="site-nav" aria-label="Main navigation">
-          <MegaMenu
-            groups={companyGroups}
-            label="Company"
-            sideCopy="Loglime stays focused on customer-facing restaurant apps, not a heavy POS replacement."
-            sideCta="Talk to us"
-            sideHref="/contact"
-            sideTitle="Restaurant app studio"
-          />
-          <MegaMenu
-            groups={platformGroups}
-            label="Platform"
-            sideCopy="Sell digital menu, ordering, booking and loyalty apps with a clean launch process."
-            sideCta="Explore restaurant apps"
-            sideHref="/products/restaurant"
-            sideTitle="Customer app modules"
-          />
-          <MegaMenu
-            align="right"
-            groups={resourceGroups}
-            label="Resources"
-            sideCopy="A calm implementation path from restaurant menu and brand assets to a live customer-facing app."
-            sideCta="Book a demo"
-            sideHref="/demo"
-            sideTitle="Restaurant app launch"
-          />
+          <Link className="nav-link" href="/products/restaurant">
+            Platform
+          </Link>
+          <MegaMenu groups={productGroups} label="Products" />
+          <MegaMenu groups={solutionGroups} label="Solutions" />
           <Link className="nav-link" href="/pricing">
             Pricing
           </Link>
+          <MegaMenu groups={resourceGroups} label="Resources" />
+          <MegaMenu groups={companyGroups} label="Company" />
         </nav>
         <div className="site-actions">
-          <ButtonLink href="/signup" size="sm">
-            Get started
-          </ButtonLink>
+          <Link className="site-login" href="/login">
+            Login
+          </Link>
+          <Link className="site-demo" href="/demo">
+            Book Demo
+          </Link>
+          <Link className="site-trial" href="/signup">
+            Start Free Trial
+          </Link>
         </div>
         <details className="mobile-nav">
           <summary aria-label="Open menu">

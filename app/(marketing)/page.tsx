@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -15,16 +16,14 @@ import {
   TrendingUp,
   Users,
   Utensils,
+  Video,
   Zap
 } from "lucide-react";
 import { SubscribeForm } from "@/components/marketing/SubscribeForm";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { SaasIcon, type SaasIconName } from "@/components/ui/SaasIcon";
 import { createMetadata, organizationJsonLd, restaurantSoftwareJsonLd, routeMeta, websiteJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata(routeMeta("/"));
-
-const trustLogos = ["brioche & co", "northwind cafe", "paloma grill", "verda kitchen", "kindred bites", "harbor qsr"];
 
 const stats = [
   {
@@ -54,39 +53,39 @@ const reasons = [
 const products: {
   title: string;
   copy: string;
-  icon: SaasIconName;
-  label: string;
   tone: string;
+  image: string;
+  imageAlt: string;
 }[] = [
-  {
-    title: "Online ordering app",
-    copy: "Give restaurants their own direct pickup, delivery and dine-in ordering flow with branded menus, item options and order totals.",
-    icon: "dashboard-browsing",
-    label: "Orders",
-    tone: "blue"
-  },
-  {
-    title: "Digital menu app",
-    copy: "Create QR-ready menus with categories, prices, photos, descriptions and availability that stay easy for guests to browse.",
-    icon: "calendar-check",
-    label: "Menus",
-    tone: "green"
-  },
-  {
-    title: "Table booking app",
-    copy: "Offer a clean booking request flow for restaurants that want more reservations without a heavy reservation system.",
-    icon: "user-group",
-    label: "Bookings",
-    tone: "cyan"
-  },
-  {
-    title: "Loyalty and offers app",
-    copy: "Help restaurants bring guests back with offers, repeat-visit rewards, promo links and customer update campaigns.",
-    icon: "task-done01",
-    label: "Loyalty",
-    tone: "lime"
-  }
-];
+    {
+      title: "Online ordering app",
+      copy: "Give restaurants their own direct pickup, delivery and dine-in ordering flow with branded menus, item options and order totals.",
+      tone: "blue",
+      image: "/brand/online_ordering_banner.png",
+      imageAlt: "Online ordering app banner with mobile ordering and delivery visuals"
+    },
+    {
+      title: "Digital menu app",
+      copy: "Create QR-ready menus with categories, prices, photos, descriptions and availability that stay easy for guests to browse.",
+      tone: "green",
+      image: "/brand/digital_menu_app_banner.png",
+      imageAlt: "Digital menu app banner with mobile menu and QR menu visuals"
+    },
+    {
+      title: "Table booking app",
+      copy: "Offer a clean booking request flow for restaurants that want more reservations without a heavy reservation system.",
+      tone: "cyan",
+      image: "/brand/table_booking_exact.png",
+      imageAlt: "Table booking app banner with reservation calendar and dining table visuals"
+    },
+    {
+      title: "Loyalty and offers app",
+      copy: "Help restaurants bring guests back with offers, repeat-visit rewards, promo links and customer update campaigns.",
+      tone: "lime",
+      image: "/brand/loyalty_offers_exact_clean.png",
+      imageAlt: "Loyalty and offers app banner with rewards card and offer visuals"
+    }
+  ];
 
 const integrationsTop = ["QR codes", "Website buttons", "Instagram", "Google Business", "WhatsApp", "Stripe-ready", "Analytics", "Email updates"];
 const integrationsBottom = ["Menu imports", "Order exports", "Customer lists", "Promo links", "Booking forms", "SMS-ready", "Webhook-ready", "CSV reports"];
@@ -168,34 +167,51 @@ export default function HomePage() {
       <JsonLd data={[organizationJsonLd, websiteJsonLd, restaurantSoftwareJsonLd, faqJsonLd]} />
 
       <section className="home-hero">
-        <div className="home-hero-gradient" aria-hidden="true" />
-        <div className="home-hero-image" aria-hidden="true" />
-
         <div className="home-hero-content">
-          <span className="home-badge">Smart restaurant app software</span>
-          <h1>Sell restaurant apps that bring more orders, bookings and repeat guests.</h1>
+          <span className="home-badge">
+            <span className="home-badge-dot" />
+            New Kitchen Display System Live!
+          </span>
+          <h1>
+            More Orders.
+            <br />
+            <span>Less Chaos.</span>
+          </h1>
           <p>
-            Loglime helps you launch branded customer apps for restaurants: digital menus, online ordering, table
-            bookings, loyalty offers and direct customer updates.
+            The modern POS and online ordering system built for high-volume restaurants. Speed up your kitchen,
+            eliminate dispatcher load, and delight your guests.
           </p>
           <div className="home-hero-actions">
-            <Link className="home-btn home-btn-dark" href="/demo">
-              Request a demo
+            <Link className="home-btn home-btn-coral" href="/signup">
+              Start Free Trial
+              <ArrowRight size={18} />
             </Link>
-            <Link className="home-btn home-btn-glass" href="/signup">
-              Start 14-Day Free Trial
+            <Link className="home-btn home-btn-soft" href="/demo">
+              <Video size={20} />
+              Watch Demo
             </Link>
           </div>
+          <p className="home-hero-note">No credit card required. 14-day free trial.</p>
 
-          <div className="home-trust">
-            <p>Powering direct restaurant growth globally</p>
-            <div className="home-logo-mask">
-              <div className="home-logo-track">
-                {[...trustLogos, ...trustLogos].map((logo, index) => (
-                  <span key={`${logo}-${index}`}>{logo}</span>
-                ))}
+          <div className="home-video-card">
+            <div className="home-video-frame">
+              <Image
+                alt="Restaurant POS overview"
+                className="home-video-image"
+                fill
+                priority
+                sizes="(max-width: 1040px) calc(100vw - 32px), 1024px"
+                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+              />
+              <div className="home-video-overlay" />
+              <div className="home-video-play" aria-hidden="true">
+                <svg fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M4 2.69127C4 1.93067 4.81547 1.44851 5.48192 1.81506L22.4069 11.1238C23.0977 11.5037 23.0977 12.4963 22.4069 12.8762L5.48192 22.1849C4.81546 22.5515 4 22.0693 4 21.3087V2.69127Z" />
+                </svg>
               </div>
+              <span className="home-video-duration">02:15</span>
             </div>
+            <span className="home-video-caption">See Loglime in action</span>
           </div>
         </div>
       </section>
@@ -274,15 +290,15 @@ export default function HomePage() {
             {products.map((product) => (
               <article className={`home-feature-card home-feature-${product.tone}`} key={product.title}>
                 <div className="home-feature-visual">
-                  <span className="home-feature-icon">
-                    <SaasIcon name={product.icon} size={28} />
-                  </span>
-                  <div className="home-feature-lines" aria-hidden="true">
-                    <span />
-                    <span />
-                    <span />
+                  <div className="home-feature-image-frame">
+                    <Image
+                      alt={product.imageAlt}
+                      className="home-feature-image"
+                      fill
+                      sizes="(max-width: 1040px) calc(100vw - 68px), 550px"
+                      src={product.image}
+                    />
                   </div>
-                  <strong>{product.label}</strong>
                 </div>
                 <div className="home-feature-copy">
                   <h3>{product.title}</h3>

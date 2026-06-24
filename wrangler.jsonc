@@ -1,7 +1,11 @@
 {
-  "name": "loglime-next",
-  "pages_build_output_dir": ".vercel/output/static",
+  "name": "loglime-website",
+  "main": ".open-next/worker.js",
   "account_id": "ac5b869b7644fe43ed508cd3db86111c",
   "compatibility_date": "2026-06-24",
-  "compatibility_flags": ["nodejs_compat"]
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  }
 }

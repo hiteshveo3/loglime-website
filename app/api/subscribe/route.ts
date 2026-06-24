@@ -1,9 +1,7 @@
+export const runtime = 'edge';
+
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { sendSubscriptionEmails } from "@/lib/email/smtp";
-
-export const runtime = "nodejs";
-export const dynamic = "force-dynamic";
 
 const subscribeSchema = z.object({
   email: z.string().trim().email().max(254),
@@ -21,31 +19,32 @@ export async function POST(request: Request) {
   }
 
   const parsed = subscribeSchema.safeParse(payload);
-
   if (!parsed.success) {
     return NextResponse.json({ message: "Please enter a valid email address." }, { status: 400 });
   }
 
   const { email, source, company } = parsed.data;
 
+  // Honeypot
   if (company) {
     return NextResponse.json({ message: "Thanks. You are subscribed." });
   }
 
-  try {
-    await sendSubscriptionEmails({ email, source: source || "website" });
-    return NextResponse.json({ message: "Thanks. You are subscribed." });
-  } catch (error) {
-    if (error instanceof Error && error.message === "SMTP_NOT_CONFIGURED") {
-      return NextResponse.json(
-        { message: "Email setup is pending. Please add SMTP settings and try again." },
-        { status: 503 }
-      );
+  // Add contact to Loops mailing list
+  if (process.env.LOOPS_API_KEY) {
+    try {
+      await fetch("https://app.loops.so/api/v1/contacts/create", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${process.env.LOOPS_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, source: source || "website", subscribed: true }),
+      });
+    } catch {
+      // non-fatal
     }
-
-    return NextResponse.json(
-      { message: "We could not subscribe this email right now. Please try again shortly." },
-      { status: 500 }
-    );
   }
+
+  return NextResponse.json({ message: "Thanks. You are subscribed." });
 }

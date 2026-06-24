@@ -1,0 +1,162 @@
+<mjml>
+  <mj-head>
+    <mj-title>We Got Your Message</mj-title>
+    <mj-preview>Thanks for reaching out to Loglime {DATA_VARIABLE:firstName}!</mj-preview>
+    <mj-attributes>
+      <mj-all font-family="'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" />
+      <mj-text line-height="1.8" color="#1f2937" />
+    </mj-attributes>
+    <mj-style inline="inline">
+      .status-box { background: #ecfdf5; border: 1px solid #d1fae5; padding: 16px; border-radius: 8px; margin: 20px 0; }
+      .status-text { color: #065f46; font-weight: 600; font-size: 14px; }
+      .info-card { background: #f9fafb; border-left: 4px solid #FF5A5F; padding: 16px; border-radius: 6px; margin: 16px 0; }
+      .info-label { font-size: 12px; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5px; }
+      .info-value { font-size: 15px; font-weight: 600; color: #1f2937; margin-top: 6px; }
+      .timeline-item { margin: 18px 0; }
+      .timeline-num { display: inline-block; background: #FF5A5F; color: white; width: 36px; height: 36px; border-radius: 50%; text-align: center; line-height: 36px; font-weight: 700; font-size: 15px; margin-right: 14px; }
+      .timeline-title { display: inline-block; font-weight: 600; color: #1f2937; font-size: 15px; }
+      .timeline-desc { font-size: 13px; color: #6b7280; margin-left: 50px; margin-top: 5px; line-height: 1.6; }
+      .divider { border-top: 1px solid #e5e7eb; margin: 30px 0; }
+      .section-title { font-size: 16px; font-weight: 700; color: #1f2937; margin-bottom: 12px; }
+      .contact-link { color: #FF5A5F; text-decoration: none; font-weight: 600; }
+      .contact-link:hover { text-decoration: underline; }
+    </mj-style>
+  </mj-head>
+
+  <mj-body background-color="white">
+
+    <!-- Header -->
+    <mj-section background-color="#FF5A5F" padding="50px 30px 45px 30px">
+      <mj-column width="100%">
+        <mj-text align="center" font-size="13px" color="white" opacity="0.95" font-weight="600" text-transform="uppercase" letter-spacing="1.2px" padding="0 0 12px 0">
+          Message Received
+        </mj-text>
+        <mj-text align="center" font-size="40px" color="white" font-weight="700" line-height="1.2" padding="0 0 12px 0">
+          Thank You!
+        </mj-text>
+        <mj-text align="center" font-size="15px" color="white" opacity="0.95">
+          We've received your inquiry and our team is on it
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- Content -->
+    <mj-section background-color="white" padding="45px 30px">
+      <mj-column width="100%">
+
+        <!-- Status Badge -->
+        <mj-section background-color="white" padding="0">
+          <mj-column width="100%">
+            <mj-text font-size="0" padding="0">
+              <div class="status-box">
+                <div class="status-text">✓ Your message has been successfully received and logged</div>
+              </div>
+            </mj-text>
+          </mj-column>
+        </mj-section>
+
+        <!-- Message Details -->
+        <mj-text class="section-title" padding-top="20px" padding-bottom="15px">
+          Your Message Details:
+        </mj-text>
+
+        <mj-section background-color="white" padding="0">
+          <mj-column width="100%">
+            <mj-text font-size="0" padding="0">
+              <div class="info-card">
+                <div class="info-label">Subject</div>
+                <div class="info-value">{DATA_VARIABLE:subject}</div>
+              </div>
+            </mj-text>
+          </mj-column>
+        </mj-section>
+
+        <!-- What to Expect -->
+        <mj-text class="section-title" padding-top="25px" padding-bottom="15px">
+          What Happens Next:
+        </mj-text>
+
+        <mj-text font-size="0" padding="0">
+          <div class="timeline-item">
+            <span class="timeline-num">1</span>
+            <span class="timeline-title">Team Review</span>
+            <div class="timeline-desc">Our team reviews your message within 1-2 hours</div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-num">2</span>
+            <span class="timeline-title">Personal Response</span>
+            <div class="timeline-desc">You'll receive a personalized reply within 24 hours</div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-num">3</span>
+            <span class="timeline-title">Next Steps</span>
+            <div class="timeline-desc">We'll discuss solutions tailored to your needs</div>
+          </div>
+        </mj-text>
+
+        <!-- Divider -->
+        <mj-text font-size="0" padding="0">
+          <span class="divider"></span>
+        </mj-text>
+
+        <!-- Urgent Help -->
+        <mj-text class="section-title">Need Immediate Help?</mj-text>
+
+        <mj-text font-size="14px" color="#6b7280" padding-bottom="15px" line-height="1.7">
+          If your matter is urgent, don't wait. Reach out directly:
+        </mj-text>
+
+        <mj-text font-size="14px" color="#1f2937" font-weight="600">
+          <a href="mailto:support@loglime.com" class="contact-link">Email: support@loglime.com</a><br/>
+          Response time: Usually within 1-2 hours
+        </mj-text>
+
+        <!-- CTA Button -->
+        <mj-button
+          href="https://loglime.com/contact"
+          background-color="#FF5A5F"
+          font-size="15px"
+          font-weight="700"
+          padding="14px 40px"
+          border-radius="24px"
+          align="left"
+          color="white"
+          text-decoration="none"
+          margin-top="20px"
+          margin-bottom="30px"
+        >
+          Return to Website
+        </mj-button>
+
+        <!-- Divider -->
+        <mj-text font-size="0" padding="0">
+          <span class="divider"></span>
+        </mj-text>
+
+        <!-- Closing -->
+        <mj-text font-size="13px" color="#6b7280" line-height="1.7">
+          Thank you for your interest in Loglime. We truly appreciate the opportunity to help your business grow.
+        </mj-text>
+
+        <mj-text font-size="13px" color="#6b7280" padding-top="12px">
+          Best regards,<br/>
+          <span style="font-weight: 700; color: #1f2937;">The Loglime Team</span>
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <!-- Footer -->
+    <mj-section background-color="#f9fafb" padding="30px">
+      <mj-column width="100%">
+        <mj-text align="center" font-size="12px" color="#9ca3af" font-weight="600" text-transform="uppercase" letter-spacing="0.5px">
+          Loglime · Restaurant Growth Platform
+        </mj-text>
+        <mj-text align="center" font-size="11px" color="#d1d5db" padding-top="10px">
+          © 2026 Loglime LLC. All rights reserved.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+  </mj-body>
+</mjml>

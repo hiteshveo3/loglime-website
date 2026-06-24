@@ -1,0 +1,243 @@
+<mjml>
+  <mj-head>
+    <mj-title>Welcome to Loglime</mj-title>
+    <mj-preview>Your demo is ready! Transform your restaurant with Loglime</mj-preview>
+    <mj-attributes>
+      <mj-all font-family="'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" />
+      <mj-text line-height="1.8" color="#1f2937" />
+    </mj-attributes>
+    <mj-style inline="inline">
+      .feature-box { border-left: 5px solid #FF5A5F; padding: 20px 20px 20px 16px; background: #fafafa; border-radius: 6px; margin: 16px 0; }
+      .feature-icon { font-size: 32px; margin-bottom: 10px; display: block; }
+      .feature-title { font-weight: 700; color: #1f2937; font-size: 15px; margin-bottom: 6px; }
+      .feature-text { font-size: 13px; color: #6b7280; line-height: 1.7; }
+      .stat-box { background: #fef5f5; padding: 20px; border-radius: 8px; text-align: center; margin: 12px 0; border: 1px solid #fdd7d7; }
+      .stat-number { font-size: 36px; font-weight: 700; color: #FF5A5F; line-height: 1; }
+      .stat-label { font-size: 12px; color: #6b7280; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+      .step-box { margin: 18px 0; }
+      .step-number { display: inline-block; background: #FF5A5F; color: white; width: 36px; height: 36px; border-radius: 50%; text-align: center; line-height: 36px; font-weight: 700; font-size: 15px; margin-right: 14px; }
+      .step-text { display: inline-block; font-size: 15px; font-weight: 600; color: #1f2937; }
+      .step-desc { font-size: 13px; color: #6b7280; margin-left: 50px; margin-top: 5px; line-height: 1.6; }
+      .social-link { display: inline-block; margin: 0 8px; }
+      .social-link a { color: #FF5A5F; text-decoration: none; font-weight: 600; font-size: 13px; }
+      .social-link a:hover { text-decoration: underline; }
+      .email-link { color: #FF5A5F; text-decoration: none; font-weight: 600; }
+      .email-link:hover { text-decoration: underline; }
+    </mj-style>
+  </mj-head>
+
+  <mj-body background-color="#ffffff">
+
+    <!-- Header Section - Solid Coral -->
+    <mj-section background-color="#FF5A5F" padding="50px 30px 45px 30px">
+      <mj-column width="100%">
+        <mj-text align="center" font-size="13px" color="white" opacity="0.95" font-weight="600" text-transform="uppercase" letter-spacing="1.2px" padding="0 0 12px 0">
+          Welcome to Loglime
+        </mj-text>
+        <mj-text align="center" font-size="42px" color="white" font-weight="700" line-height="1.2" padding="0 0 15px 0">
+          Transform Your Restaurant
+        </mj-text>
+        <mj-text align="center" font-size="15px" color="white" opacity="0.95" line-height="1.6">
+          Your personalized demo is ready. Let's unlock your restaurant's growth potential.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- Main Content -->
+    <mj-section background-color="white" padding="45px 30px">
+      <mj-column width="100%">
+
+        <!-- Intro -->
+        <mj-text font-size="16px" font-weight="600" color="#1f2937" padding-bottom="12px">
+          Here's what we'll cover in your demo:
+        </mj-text>
+
+        <mj-text font-size="14px" color="#6b7280" padding-bottom="28px" line-height="1.7">
+          We'll walk you through features that specifically help restaurants like yours grow revenue, reduce costs, and delight customers.
+        </mj-text>
+
+        <!-- Feature Boxes - Better Styling -->
+        <mj-section background-color="white" padding="0">
+          <mj-column width="100%">
+            <mj-text font-size="0" padding="0">
+              <div class="feature-box">
+                <div class="feature-icon">📱</div>
+                <div class="feature-title">Smart Ordering System</div>
+                <div class="feature-text">QR codes, mobile app, web ordering. All integrated. Real-time kitchen management.</div>
+              </div>
+            </mj-text>
+          </mj-column>
+        </mj-section>
+
+        <mj-section background-color="white" padding="0">
+          <mj-column width="100%">
+            <mj-text font-size="0" padding="0">
+              <div class="feature-box">
+                <div class="feature-icon">📊</div>
+                <div class="feature-title">Advanced Analytics Dashboard</div>
+                <div class="feature-text">Track sales, inventory, staff performance & customer behavior in real-time.</div>
+              </div>
+            </mj-text>
+          </mj-column>
+        </mj-section>
+
+        <mj-section background-color="white" padding="0">
+          <mj-column width="100%">
+            <mj-text font-size="0" padding="0">
+              <div class="feature-box">
+                <div class="feature-icon">💝</div>
+                <div class="feature-title">Loyalty & Rewards Programs</div>
+                <div class="feature-text">Build customer loyalty with automated rewards, referrals & personalized offers.</div>
+              </div>
+            </mj-text>
+          </mj-column>
+        </mj-section>
+
+        <mj-section background-color="white" padding="0">
+          <mj-column width="100%">
+            <mj-text font-size="0" padding="0">
+              <div class="feature-box">
+                <div class="feature-icon">🤖</div>
+                <div class="feature-title">AI-Powered Support (Zest AI)</div>
+                <div class="feature-text">24/7 customer support, order tracking & FAQ automation with our AI assistant.</div>
+              </div>
+            </mj-text>
+          </mj-column>
+        </mj-section>
+
+        <!-- Impact Stats -->
+        <mj-text font-size="16px" font-weight="600" color="#1f2937" padding-top="35px" padding-bottom="15px">
+          Why restaurants love Loglime:
+        </mj-text>
+
+        <mj-section background-color="white" padding="0">
+          <mj-column width="50%" padding="6px">
+            <mj-text font-size="0" padding="0">
+              <div class="stat-box">
+                <div class="stat-number">40%</div>
+                <div class="stat-label">More Orders</div>
+              </div>
+            </mj-text>
+          </mj-column>
+          <mj-column width="50%" padding="6px">
+            <mj-text font-size="0" padding="0">
+              <div class="stat-box">
+                <div class="stat-number">50%</div>
+                <div class="stat-label">Cost Reduction</div>
+              </div>
+            </mj-text>
+          </mj-column>
+        </mj-section>
+
+        <mj-section background-color="white" padding="0">
+          <mj-column width="50%" padding="6px">
+            <mj-text font-size="0" padding="0">
+              <div class="stat-box">
+                <div class="stat-number">3x</div>
+                <div class="stat-label">Customer Value</div>
+              </div>
+            </mj-text>
+          </mj-column>
+          <mj-column width="50%" padding="6px">
+            <mj-text font-size="0" padding="0">
+              <div class="stat-box">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">AI Support</div>
+              </div>
+            </mj-text>
+          </mj-column>
+        </mj-section>
+
+        <!-- CTA Button -->
+        <mj-button
+          href="https://loglime.com/demo"
+          background-color="#FF5A5F"
+          font-size="16px"
+          font-weight="700"
+          padding="16px 50px"
+          border-radius="24px"
+          align="center"
+          color="white"
+          text-decoration="none"
+          margin-top="32px"
+          margin-bottom="35px"
+        >
+          Schedule Your Demo Now
+        </mj-button>
+
+        <!-- Divider -->
+        <mj-text font-size="0" padding="0">
+          <span style="border-top: 1px solid #e5e7eb; display: block; margin: 35px 0;"></span>
+        </mj-text>
+
+        <!-- What Happens Next - Center & Prominent -->
+        <mj-text align="center" font-size="22px" font-weight="700" color="#1f2937" padding-bottom="30px">
+          What Happens Next
+        </mj-text>
+
+        <!-- Steps - Better Visibility -->
+        <mj-text font-size="0" padding="0">
+          <div class="step-box">
+            <span class="step-number">1</span>
+            <span class="step-text">Book Your Demo</span>
+            <div class="step-desc">Schedule a time that works best for you. Usually within 24 hours.</div>
+          </div>
+          <div class="step-box">
+            <span class="step-number">2</span>
+            <span class="step-text">Personalized Walkthrough</span>
+            <div class="step-desc">Our expert guides you through features relevant to your restaurant.</div>
+          </div>
+          <div class="step-box">
+            <span class="step-number">3</span>
+            <span class="step-text">Custom Pricing & Plan</span>
+            <div class="step-desc">Get pricing tailored to your restaurant's size and needs.</div>
+          </div>
+          <div class="step-box">
+            <span class="step-number">4</span>
+            <span class="step-text">Start Your Growth Journey</span>
+            <div class="step-desc">Onboarding support included. We help you succeed from day one.</div>
+          </div>
+        </mj-text>
+
+        <!-- Divider -->
+        <mj-text font-size="0" padding="0">
+          <span style="border-top: 1px solid #e5e7eb; display: block; margin: 35px 0;"></span>
+        </mj-text>
+
+        <!-- Contact Section -->
+        <mj-text font-size="15px" font-weight="600" color="#1f2937" padding-bottom="12px">
+          Have Questions?
+        </mj-text>
+
+        <mj-text font-size="14px" color="#6b7280" line-height="1.7">
+          <a href="mailto:support@loglime.com" class="email-link">Email us at support@loglime.com</a> or reply directly to this email. We typically respond within 2 hours.
+        </mj-text>
+
+        <!-- Social Media Links -->
+        <mj-text align="center" font-size="13px" color="#6b7280" padding-top="28px">
+          Follow us for restaurant growth tips & updates:
+        </mj-text>
+
+        <mj-text align="center" padding="14px 0 0 0">
+          <span class="social-link"><a href="https://www.linkedin.com/company/loglime" target="_blank">LinkedIn</a></span> •
+          <span class="social-link"><a href="https://www.facebook.com/loglime" target="_blank">Facebook</a></span> •
+          <span class="social-link"><a href="https://www.instagram.com/loglime" target="_blank">Instagram</a></span>
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <!-- Footer -->
+    <mj-section background-color="#f9fafb" padding="30px">
+      <mj-column width="100%">
+        <mj-text align="center" font-size="12px" color="#9ca3af" font-weight="600" text-transform="uppercase" letter-spacing="0.5px">
+          Loglime · Restaurant Growth Platform
+        </mj-text>
+        <mj-text align="center" font-size="11px" color="#d1d5db" padding-top="10px">
+          © 2026 Loglime LLC. All rights reserved.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+  </mj-body>
+</mjml>

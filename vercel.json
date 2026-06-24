@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "app.loglime.com" }],
+      "destination": "/$1"
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+<mjml>
+  <mj-head>
+    <mj-title>Support Ticket Update</mj-title>
+    <mj-preview>Ticket {DATA_VARIABLE:ticketId} - {DATA_VARIABLE:status}</mj-preview>
+    <mj-attributes>
+      <mj-all font-family="'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" />
+      <mj-text line-height="1.8" color="#1f2937" />
+    </mj-attributes>
+    <mj-style inline="inline">
+      .ticket-box { background: #fef5f5; border: 2px solid #FF5A5F; padding: 24px; border-radius: 8px; margin: 20px 0; }
+      .ticket-label { font-size: 12px; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5px; }
+      .ticket-id { font-size: 28px; font-weight: 700; color: #FF5A5F; margin-top: 8px; font-family: monospace; }
+      .status-badge { display: inline-block; padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 14px; }
+      .status-open { background: #dbeafe; color: #0369a1; }
+      .status-resolved { background: #dcfce7; color: #166534; }
+      .status-pending { background: #fef3c7; color: #b45309; }
+      .info-grid { background: #f9fafb; padding: 16px; border-radius: 6px; margin: 16px 0; }
+      .info-item { margin: 12px 0; }
+      .info-label { font-size: 12px; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5px; }
+      .info-value { font-size: 14px; font-weight: 600; color: #1f2937; margin-top: 4px; }
+      .update-section { background: #fef5f5; border-left: 4px solid #FF5A5F; padding: 16px; border-radius: 6px; margin: 20px 0; }
+      .update-title { font-weight: 700; color: #1f2937; font-size: 14px; margin-bottom: 6px; }
+      .update-text { font-size: 13px; color: #6b7280; line-height: 1.6; }
+      .timeline-list { font-size: 13px; color: #6b7280; line-height: 1.8; }
+      .divider { border-top: 1px solid #e5e7eb; margin: 30px 0; }
+      .section-title { font-size: 16px; font-weight: 700; color: #1f2937; margin-bottom: 12px; margin-top: 20px; }
+      .cta-button { background-color: #FF5A5F; color: white; padding: 15px 40px; border-radius: 24px; font-weight: 700; text-decoration: none; display: inline-block; margin: 24px 0; font-size: 15px; }
+    </mj-style>
+  </mj-head>
+
+  <mj-body background-color="white">
+
+    <!-- Header -->
+    <mj-section background-color="#FF5A5F" padding="50px 30px 45px 30px">
+      <mj-column width="100%">
+        <mj-text align="center" font-size="13px" color="white" opacity="0.95" font-weight="600" text-transform="uppercase" letter-spacing="1.2px" padding="0 0 12px 0">
+          Support Ticket Update
+        </mj-text>
+        <mj-text align="center" font-size="40px" color="white" font-weight="700" line-height="1.2">
+          Your Ticket Has Been Updated
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- Content -->
+    <mj-section background-color="white" padding="45px 30px">
+      <mj-column width="100%">
+
+        <!-- Ticket Card -->
+        <mj-section background-color="white" padding="0">
+          <mj-column width="100%">
+            <mj-text font-size="0" padding="0">
+              <div class="ticket-box">
+                <div class="ticket-label">Ticket ID</div>
+                <div class="ticket-id">#{DATA_VARIABLE:ticketId}</div>
+                <div class="status-badge status-{DATA_VARIABLE:status}">
+                  {DATA_VARIABLE:status}
+                </div>
+              </div>
+            </mj-text>
+          </mj-column>
+        </mj-section>
+
+        <!-- Status Update -->
+        <mj-section background-color="white" padding="0">
+          <mj-column width="100%">
+            <mj-text font-size="0" padding="0">
+              <div class="update-section">
+                <div class="update-title">✓ Status Updated</div>
+                <div class="update-text">
+                  We've made progress on your support request. Our team is actively working to resolve your issue.
+                </div>
+              </div>
+            </mj-text>
+          </mj-column>
+        </mj-section>
+
+        <!-- Ticket Details -->
+        <mj-text class="section-title">
+          Ticket Details:
+        </mj-text>
+
+        <mj-section background-color="white" padding="0">
+          <mj-column width="100%">
+            <mj-text font-size="0" padding="0">
+              <div class="info-grid">
+                <div class="info-item">
+                  <div class="info-label">Ticket ID</div>
+                  <div class="info-value">#{DATA_VARIABLE:ticketId}</div>
+                </div>
+                <div class="info-item">
+                  <div class="info-label">Current Status</div>
+                  <div class="info-value" style="color: #FF5A5F; text-transform: uppercase;">{DATA_VARIABLE:status}</div>
+                </div>
+                <div class="info-item">
+                  <div class="info-label">Last Updated</div>
+                  <div class="info-value">Today</div>
+                </div>
+                <div class="info-item">
+                  <div class="info-label">Support Team</div>
+                  <div class="info-value">Loglime Support</div>
+                </div>
+              </div>
+            </mj-text>
+          </mj-column>
+        </mj-section>
+
+        <!-- What to Expect -->
+        <mj-text class="section-title">
+          What to Expect:
+        </mj-text>
+
+        <mj-text class="timeline-list">
+          ⏳ <strong>Response Time</strong>: We'll update you within 24 hours<br/>
+          📧 <strong>Communication</strong>: You'll receive email updates for any changes<br/>
+          ✉️ <strong>Reply Option</strong>: Reply to this email to add more information<br/>
+          🔐 <strong>Privacy</strong>: Your information is secure and confidential
+        </mj-text>
+
+        <!-- View Ticket Button -->
+        <mj-button
+          href="{DATA_VARIABLE:supportLink}"
+          background-color="#FF5A5F"
+          font-size="15px"
+          font-weight="700"
+          padding="15px 40px"
+          border-radius="24px"
+          align="center"
+          color="white"
+          text-decoration="none"
+          margin-top="28px"
+          margin-bottom="30px"
+        >
+          View Your Ticket in Portal
+        </mj-button>
+
+        <!-- Divider -->
+        <mj-text font-size="0" padding="0">
+          <span class="divider"></span>
+        </mj-text>
+
+        <!-- Additional Support -->
+        <mj-text class="section-title">
+          Need More Help?
+        </mj-text>
+
+        <mj-text font-size="14px" color="#6b7280" line-height="1.7">
+          • <strong>Reply to this email</strong> with additional details<br/>
+          • <strong>Visit our Knowledge Base</strong> for self-help articles<br/>
+          • <strong>Contact us directly</strong> at support@loglime.com<br/>
+          • <strong>Schedule a call</strong> with our team for urgent matters
+        </mj-text>
+
+        <!-- Divider -->
+        <mj-text font-size="0" padding="0">
+          <span class="divider"></span>
+        </mj-text>
+
+        <!-- Closing -->
+        <mj-text font-size="13px" color="#6b7280" line-height="1.7">
+          Thank you for your patience. We're committed to resolving your issue as quickly as possible.
+        </mj-text>
+
+        <mj-text font-size="13px" color="#6b7280" padding-top="12px">
+          Best regards,<br/>
+          <span style="font-weight: 700; color: #1f2937;">Loglime Support Team</span>
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+
+    <!-- Footer -->
+    <mj-section background-color="#f9fafb" padding="30px">
+      <mj-column width="100%">
+        <mj-text align="center" font-size="12px" color="#9ca3af" font-weight="600" text-transform="uppercase" letter-spacing="0.5px">
+          Loglime · Support Team
+        </mj-text>
+        <mj-text align="center" font-size="11px" color="#d1d5db" padding-top="10px">
+          © 2026 Loglime LLC. All rights reserved.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+  </mj-body>
+</mjml>

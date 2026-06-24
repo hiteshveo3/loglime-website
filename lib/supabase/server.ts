@@ -4,8 +4,8 @@ import { cookies } from "next/headers";
 import type { Database } from "@/types/database";
 import { getRequiredEnv } from "@/lib/utils";
 
-export function createClient() {
-  const cookieStore = cookies();
+export async function createClient() {
+  const cookieStore = await cookies();
 
   return createServerClient<Database>(
     getRequiredEnv("NEXT_PUBLIC_SUPABASE_URL"),

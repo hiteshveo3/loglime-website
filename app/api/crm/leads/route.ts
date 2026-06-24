@@ -22,7 +22,7 @@ const crmLeadSchema = z.object({
 async function authorized(request: Request) {
   const host = new URL(request.url).hostname;
   if (host === "localhost" || host === "127.0.0.1") return true;
-  const supabase = createServerClient();
+  const supabase = await createServerClient();
   const { data } = await supabase.auth.getUser();
   return Boolean(data.user);
 }

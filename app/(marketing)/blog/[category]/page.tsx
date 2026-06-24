@@ -9,8 +9,9 @@ export function generateStaticParams() {
   return blogCategories.map((category) => ({ category: category.slug }));
 }
 
-export function generateMetadata({ params }: { params: { category: string } }): Metadata {
-  const category = getBlogCategory(params.category);
+export async function generateMetadata({ params }: { params: Promise<{ category: string }> }): Promise<Metadata> {
+  const { category: categorySlug } = await params;
+  const category = getBlogCategory(categorySlug);
   if (!category) return {};
   return {
     title: `${category.name} Articles | Loglime Blog`,
@@ -19,8 +20,9 @@ export function generateMetadata({ params }: { params: { category: string } }): 
   };
 }
 
-export default function BlogCategoryPage({ params }: { params: { category: string } }) {
-  const category = getBlogCategory(params.category);
+export default async function BlogCategoryPage({ params }: { params: Promise<{ category: string }> }) {
+  const { category: categorySlug } = await params;
+  const category = getBlogCategory(categorySlug);
   if (!category) notFound();
   const posts = getPostsByCategory(category.slug);
 

@@ -7,14 +7,16 @@ export function generateStaticParams() {
   return productPages.map((page) => ({ slug: page.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const page = productPages.find((item) => item.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const page = productPages.find((item) => item.slug === slug);
   if (!page) return {};
   return getPageMetadata(page, "products");
 }
 
-export default function ProductDetailRoute({ params }: { params: { slug: string } }) {
-  const page = productPages.find((item) => item.slug === params.slug);
+export default async function ProductDetailRoute({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const page = productPages.find((item) => item.slug === slug);
   if (!page) notFound();
   return <DetailPageView page={page} kind="Product" />;
 }

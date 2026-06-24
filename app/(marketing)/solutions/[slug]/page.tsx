@@ -7,14 +7,16 @@ export function generateStaticParams() {
   return solutionPages.map((page) => ({ slug: page.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const page = solutionPages.find((item) => item.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const page = solutionPages.find((item) => item.slug === slug);
   if (!page) return {};
   return getPageMetadata(page, "solutions");
 }
 
-export default function SolutionDetailRoute({ params }: { params: { slug: string } }) {
-  const page = solutionPages.find((item) => item.slug === params.slug);
+export default async function SolutionDetailRoute({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const page = solutionPages.find((item) => item.slug === slug);
   if (!page) notFound();
   return <DetailPageView page={page} kind="Solution" />;
 }

@@ -9,8 +9,9 @@ export function generateStaticParams() {
   return blogAuthors.map((author) => ({ username: author.username }));
 }
 
-export function generateMetadata({ params }: { params: { username: string } }): Metadata {
-  const author = getBlogAuthor(params.username);
+export async function generateMetadata({ params }: { params: Promise<{ username: string }> }): Promise<Metadata> {
+  const { username } = await params;
+  const author = getBlogAuthor(username);
   if (!author) return {};
   return {
     title: `${author.name} | Loglime Blog Author`,
@@ -24,8 +25,9 @@ export function generateMetadata({ params }: { params: { username: string } }): 
   };
 }
 
-export default function AuthorPage({ params }: { params: { username: string } }) {
-  const author = getBlogAuthor(params.username);
+export default async function AuthorPage({ params }: { params: Promise<{ username: string }> }) {
+  const { username } = await params;
+  const author = getBlogAuthor(username);
   if (!author) notFound();
   const posts = getPostsByAuthor(author.username);
   const schema = {

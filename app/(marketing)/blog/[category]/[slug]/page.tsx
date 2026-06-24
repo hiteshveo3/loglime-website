@@ -29,8 +29,9 @@ export function generateStaticParams() {
   return blogPosts.map((post) => ({ category: post.categorySlug, slug: post.slug }));
 }
 
-export function generateMetadata({ params }: { params: { category: string; slug: string } }): Metadata {
-  const post = getBlogPost(params.category, params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ category: string; slug: string }> }): Promise<Metadata> {
+  const { category, slug } = await params;
+  const post = getBlogPost(category, slug);
   if (!post) return {};
   const author = getBlogAuthor(post.authorUsername);
   return {
@@ -119,8 +120,9 @@ function ArticleBody({ post }: { post: NonNullable<ReturnType<typeof getBlogPost
   );
 }
 
-export default function BlogPostPage({ params }: { params: { category: string; slug: string } }) {
-  const post = getBlogPost(params.category, params.slug);
+export default async function BlogPostPage({ params }: { params: Promise<{ category: string; slug: string }> }) {
+  const { category: categorySlug, slug } = await params;
+  const post = getBlogPost(categorySlug, slug);
   if (!post) notFound();
 
   const category = getBlogCategory(post.categorySlug);

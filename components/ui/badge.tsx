@@ -1,29 +1,24 @@
-import type { HTMLAttributes } from "react";
+import { clsx } from "clsx";
 
-import { cn } from "@/lib/utils";
-import type { StatusTone } from "@/types/app";
-
-const toneClasses: Record<StatusTone, string> = {
-  success: "bg-status-successSoft text-status-success",
-  warning: "bg-status-warningSoft text-status-warning",
-  error: "bg-status-errorSoft text-status-error",
-  info: "bg-status-infoSoft text-status-info",
-  neutral: "bg-slate-100 text-text-secondary",
+type BadgeProps = {
+  children: React.ReactNode;
+  tone?: "default" | "coral" | "teal" | "blue" | "amber" | "purple";
 };
 
-export type BadgeProps = HTMLAttributes<HTMLSpanElement> & {
-  tone?: StatusTone;
+const toneClass = {
+  default: "",
+  coral: "badge-coral",
+  teal: "badge-teal",
+  blue: "badge-blue",
+  amber: "badge-amber",
+  purple: "badge-purple"
 };
 
-export function Badge({ className, tone = "neutral", ...props }: BadgeProps) {
+export function Badge({ children, tone = "default" }: BadgeProps) {
   return (
-    <span
-      className={cn(
-        "inline-flex items-center rounded-full px-3 py-1 text-caption font-semibold uppercase tracking-wide",
-        toneClasses[tone],
-        className,
-      )}
-      {...props}
-    />
+    <span className={clsx("badge", toneClass[tone])}>
+      <span className="badge-dot" />
+      {children}
+    </span>
   );
 }

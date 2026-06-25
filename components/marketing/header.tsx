@@ -27,16 +27,16 @@ const solutions = [
 ];
 
 const resources = [
-  { label: "Blog", href: "/blog", icon: "hgi-quill-write-02" },
-  { label: "Case Studies", href: "/blog/case-studies", icon: "hgi-chart-increase" },
-  { label: "Guides", href: "/blog/online-ordering", icon: "hgi-book-02" },
-  { label: "Help Center", href: "/faq", icon: "hgi-headphone" },
+  { label: "Blog", href: "/blog", icon: "hgi-pencil-edit-02" },
+  { label: "Case Studies", href: "/blog/case-studies", icon: "hgi-bar-chart-01" },
+  { label: "Guides", href: "/blog/online-ordering", icon: "hgi-compass-01" },
+  { label: "Help Center", href: "/faq", icon: "hgi-bubble-chat-question" },
 ];
 
 const company = [
   { label: "About", href: "/about", icon: "hgi-information-circle" },
   { label: "Contact", href: "/contact", icon: "hgi-sent" },
-  { label: "Legal Center", href: "/legal", icon: "hgi-shield-check" },
+  { label: "Legal Center", href: "/legal", icon: "hgi-balance-01" },
 ];
 
 function MenuRow({ item }: { item: { icon: string; name: string; desc: string; href: string } }) {
@@ -55,7 +55,7 @@ function MenuRow({ item }: { item: { icon: string; name: string; desc: string; h
 
 function ProductsMegaMenu() {
   return (
-    <div className="fixed left-1/2 top-[116px] z-50 grid w-[min(860px,calc(100vw-2rem))] -translate-x-1/2 grid-cols-[1fr_280px] gap-6 rounded-2xl border border-border bg-white p-6 shadow-modal">
+    <div className="fixed left-1/2 top-[116px] z-50 grid w-[min(860px,calc(100vw-2rem))] -translate-x-1/2 grid-cols-[1fr_280px] gap-6 rounded-2xl border border-border bg-white p-6">
       <div>
         <p className="mb-2 px-3 text-caption uppercase tracking-wider text-text-muted">Products</p>
         <div className="grid gap-1">
@@ -66,7 +66,7 @@ function ProductsMegaMenu() {
       </div>
       <div className="border-l border-border pl-6">
         <p className="mb-3 text-caption uppercase tracking-wider text-text-muted">Most Popular</p>
-        <div className="rounded-2xl border border-coral/30 bg-gradient-to-br from-coral-soft via-coral-light to-white p-5 shadow-floating">
+        <div className="rounded-2xl border border-coral/30 bg-gradient-to-br from-coral-soft via-coral-light to-white p-5">
           <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-coral text-white">
             <i className="hgi-stroke hgi-shopping-cart-01 text-lg" />
           </div>
@@ -88,7 +88,7 @@ function ProductsMegaMenu() {
 
 function SolutionsMegaMenu() {
   return (
-    <div className="fixed left-1/2 top-[116px] z-50 grid w-[min(860px,calc(100vw-2rem))] -translate-x-1/2 grid-cols-[1fr_280px] gap-6 rounded-2xl border border-border bg-white p-6 shadow-modal">
+    <div className="fixed left-1/2 top-[116px] z-50 grid w-[min(860px,calc(100vw-2rem))] -translate-x-1/2 grid-cols-[1fr_280px] gap-6 rounded-2xl border border-border bg-white p-6">
       <div>
         <p className="mb-2 px-3 text-caption uppercase tracking-wider text-text-muted">Built For</p>
         <div className="grid gap-1">
@@ -126,7 +126,7 @@ function SolutionsMegaMenu() {
 
 function SmallDropdown({ items, width = "w-[220px]" }: { items: Array<{ label: string; href: string; icon: string }>; width?: string }) {
   return (
-    <div className={cn("absolute left-0 top-full z-50 mt-2 rounded-2xl border border-border bg-white p-2 shadow-modal", width)}>
+    <div className={cn("absolute left-0 top-full z-50 mt-2 rounded-2xl border border-border bg-white p-2", width)}>
       {items.map((item) => (
         <a key={item.href} className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-small font-semibold text-text-secondary hover:bg-coral-light hover:text-coral" href={item.href}>
           <i className={cn("hgi-stroke text-lg", item.icon)} />
@@ -157,7 +157,7 @@ function DesktopMenuButton({ label, menuKey, openKey, onOpen, children }: { labe
       onMouseLeave={scheduleClose}
       onMouseMove={cancelClose}
     >
-      <button className="inline-flex h-11 items-center gap-1 rounded-full px-3 text-body font-semibold text-text-secondary transition hover:bg-slate-100 hover:text-coral" aria-haspopup="menu" aria-expanded={open} onFocus={() => onOpen(menuKey)}>
+      <button className="inline-flex h-11 items-center gap-1 rounded-full px-3 text-body font-semibold text-text-secondary transition hover:bg-slate-100 hover:text-coral outline-none focus:outline-none" aria-haspopup="menu" aria-expanded={open} onFocus={() => onOpen(menuKey)}>
         {label}
         <i className={cn("hgi-stroke hgi-arrow-down-01 text-xs transition", open && "rotate-180")} />
       </button>

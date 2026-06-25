@@ -21,13 +21,13 @@ export function FaqAccordion({ items, defaultOpen = 0 }: { items: FaqItem[]; def
               aria-expanded={open}
               aria-controls={answerId}
             >
-              <h3 className="text-body font-semibold text-text-primary">{item.question}</h3>
+              <h3 className="text-h4 font-semibold text-text-primary">{item.question}</h3>
               <span className={cn("flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-100 text-text-secondary transition", open && "bg-coral-light text-coral")}>
                 <i className={cn("hgi-stroke", open ? "hgi-minus-sign" : "hgi-add-01")} />
               </span>
             </button>
             {open ? (
-              <div id={answerId} className="pb-5 pr-14 text-body leading-7 text-text-secondary">
+              <div id={answerId} className="pb-5 pr-14 text-[1.0625rem] leading-[1.75] text-text-secondary">
                 {item.answer}
               </div>
             ) : null}

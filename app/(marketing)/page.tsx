@@ -349,7 +349,7 @@ export default function HomePage() {
                 {comparisonRows.map((row, i) => (
                   <tr key={row.feature} className={i % 2 === 0 ? "bg-white" : "bg-slate-50"}>
                     <td className="border-b border-slate-200 px-5 py-4 text-body font-semibold text-slate-700">{row.feature}</td>
-                    <td className="border-b border-coral/20 bg-coral/5 px-5 py-4 text-body font-bold text-coral">{row.loglime}</td>
+                    <td className="border-b border-coral/30 px-5 py-4 text-body font-bold text-coral" style={{ backgroundColor: "#FFF0F0" }}>{row.loglime}</td>
                     <td className="border-b border-slate-200 px-5 py-4 text-body text-slate-500">{row.thirdParty}</td>
                     <td className="border-b border-slate-200 px-5 py-4 text-body text-slate-500">{row.pos}</td>
                   </tr>
@@ -361,16 +361,16 @@ export default function HomePage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-surface-alt py-16">
+      <section className="relative overflow-hidden bg-surface-alt py-16" style={{ backgroundImage: "radial-gradient(circle, #e2e8f0 1.5px, transparent 1.5px)", backgroundSize: "28px 28px" }}>
         <div className="mx-auto max-w-page px-4 lg:px-8">
           <div className="text-center">
             <a href="/faq" className="inline-flex items-center gap-1.5 text-small font-semibold text-coral hover:underline">
               See all FAQs <i className="hgi-stroke hgi-arrow-right-01 text-xs" />
             </a>
-            <h2 className="mt-3 text-h1 text-text-primary">Common questions.</h2>
+            <h2 className="mt-3 text-[2.75rem] font-bold leading-tight text-text-primary">Common questions.</h2>
             <p className="mt-3 text-body text-text-secondary">Everything you need to know before getting started.</p>
           </div>
-          <div className="mx-auto mt-10 max-w-3xl">
+          <div className="mx-auto mt-10 max-w-3xl rounded-2xl bg-white px-6 py-2 shadow-card">
             <FaqAccordion items={faqs} defaultOpen={0} />
           </div>
         </div>

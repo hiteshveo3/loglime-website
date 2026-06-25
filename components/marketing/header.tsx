@@ -30,13 +30,13 @@ const resources = [
   { label: "Blog", href: "/blog", icon: "hgi-pencil-edit-02" },
   { label: "Case Studies", href: "/blog/case-studies", icon: "hgi-bar-chart-01" },
   { label: "Guides", href: "/blog/online-ordering", icon: "hgi-compass-01" },
-  { label: "Help Center", href: "/faq", icon: "hgi-bubble-chat-question" },
+  { label: "Help Center", href: "/faq", icon: "hgi-life-buoy" },
 ];
 
 const company = [
   { label: "About", href: "/about", icon: "hgi-information-circle" },
   { label: "Contact", href: "/contact", icon: "hgi-sent" },
-  { label: "Legal Center", href: "/legal", icon: "hgi-balance-01" },
+  { label: "Legal Center", href: "/legal", icon: "hgi-certificate-01" },
 ];
 
 function MenuRow({ item }: { item: { icon: string; name: string; desc: string; href: string } }) {

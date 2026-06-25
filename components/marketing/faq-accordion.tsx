@@ -16,18 +16,21 @@ export function FaqAccordion({ items, defaultOpen = 0 }: { items: FaqItem[]; def
         return (
           <div key={item.question}>
             <button
-              className="flex min-h-16 w-full items-center justify-between gap-5 py-4 text-left"
+              className="flex min-h-16 w-full items-center justify-between gap-5 py-5 text-left"
               onClick={() => setOpenIndex(open ? null : index)}
               aria-expanded={open}
               aria-controls={answerId}
             >
-              <h3 className="text-h4 font-semibold text-text-primary">{item.question}</h3>
+              <h3 className="flex items-center gap-3 text-[1.0625rem] font-semibold text-text-primary">
+                <span className={cn("h-2.5 w-2.5 shrink-0 rounded-full transition", open ? "bg-coral" : "bg-slate-300")} />
+                {item.question}
+              </h3>
               <span className={cn("flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-100 text-text-secondary transition", open && "bg-coral-light text-coral")}>
                 <i className={cn("hgi-stroke", open ? "hgi-minus-sign" : "hgi-add-01")} />
               </span>
             </button>
             {open ? (
-              <div id={answerId} className="pb-5 pr-14 text-[1.0625rem] leading-[1.75] text-text-secondary">
+              <div id={answerId} className="pb-6 pl-5 pr-14 text-[1.0625rem] leading-[1.8] text-text-secondary">
                 {item.answer}
               </div>
             ) : null}

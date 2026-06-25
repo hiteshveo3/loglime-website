@@ -34,14 +34,14 @@ export default function FaqPage() {
   return (
     <main className="bg-white">
       <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <section className="border-b border-border bg-surface-alt px-4 py-12 lg:px-8 lg:py-16">
-        <div className="mx-auto max-w-page">
-          <p className="text-caption uppercase tracking-wider text-coral">Help center</p>
-          <h1 className="mt-3 max-w-4xl text-h1 text-text-primary lg:text-[3rem]">Frequently asked questions.</h1>
-          <p className="mt-4 max-w-3xl text-body text-text-secondary">
-            Everything you need to know about Loglime products, pricing, restaurant onboarding, security, support, and app publishing.
+      <section className="border-b border-border bg-surface-alt px-4 py-14 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-small font-semibold uppercase tracking-widest text-coral">Help center</p>
+          <h1 className="mt-4 text-h1 text-text-primary lg:text-[3rem]">Frequently asked questions.</h1>
+          <p className="mt-4 text-body text-text-secondary">
+            A few useful answers before you go. Everything about Loglime products, pricing, onboarding, security, and app publishing.
           </p>
-          <a className="mt-5 inline-flex items-center gap-2 text-small font-semibold text-coral" href="/contact">
+          <a className="mt-6 inline-flex items-center gap-2 text-small font-semibold text-coral hover:underline" href="/contact">
             Still need help? Contact us
             <i className="hgi-stroke hgi-arrow-right-01" />
           </a>

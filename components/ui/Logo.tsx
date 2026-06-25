@@ -14,7 +14,7 @@ export function Logo({ href = "/", inverse = false }: LogoProps) {
         className="brand-image"
         height={78}
         priority
-        src={inverse ? "/brand/logo-white-cropped.png" : "/brand/logo-jade-cropped.png"}
+        src="/logo.svg"
         width={300}
       />
     </span>

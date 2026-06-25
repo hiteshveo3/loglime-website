@@ -157,7 +157,7 @@ function DesktopMenuButton({ label, menuKey, openKey, onOpen, children }: { labe
       onMouseLeave={scheduleClose}
       onMouseMove={cancelClose}
     >
-      <button className="inline-flex h-11 items-center gap-1 rounded-full px-3 text-small font-semibold text-text-secondary transition hover:bg-slate-100 hover:text-coral" aria-haspopup="menu" aria-expanded={open} onFocus={() => onOpen(menuKey)}>
+      <button className="inline-flex h-11 items-center gap-1 rounded-full px-3 text-body font-semibold text-text-secondary transition hover:bg-slate-100 hover:text-coral" aria-haspopup="menu" aria-expanded={open} onFocus={() => onOpen(menuKey)}>
         {label}
         <i className={cn("hgi-stroke hgi-arrow-down-01 text-xs transition", open && "rotate-180")} />
       </button>
@@ -230,14 +230,14 @@ export function MarketingHeader() {
           <Logo />
         </a>
         <nav className="hidden items-center gap-2 lg:flex" aria-label="Main navigation">
-          <a className="inline-flex h-11 items-center rounded-full px-3 text-small font-semibold text-text-secondary transition hover:bg-slate-100 hover:text-coral" href="/platform">Platform</a>
+          <a className="inline-flex h-11 items-center rounded-full px-3 text-body font-semibold text-text-secondary transition hover:bg-slate-100 hover:text-coral" href="/platform">Platform</a>
           <DesktopMenuButton label="Products" menuKey="products" openKey={openKey} onOpen={setOpenKey}>
             <ProductsMegaMenu />
           </DesktopMenuButton>
           <DesktopMenuButton label="Solutions" menuKey="solutions" openKey={openKey} onOpen={setOpenKey}>
             <SolutionsMegaMenu />
           </DesktopMenuButton>
-          <a className="inline-flex h-11 items-center rounded-full px-3 text-small font-semibold text-text-secondary transition hover:bg-slate-100 hover:text-coral" href="/pricing">Pricing</a>
+          <a className="inline-flex h-11 items-center rounded-full px-3 text-body font-semibold text-text-secondary transition hover:bg-slate-100 hover:text-coral" href="/pricing">Pricing</a>
           <DesktopMenuButton label="Resources" menuKey="resources" openKey={openKey} onOpen={setOpenKey}>
             <SmallDropdown items={resources} />
           </DesktopMenuButton>

@@ -3,6 +3,7 @@ import Script from "next/script";
 import Image from "next/image";
 
 import { FaqAccordion } from "@/components/marketing/faq-accordion";
+import { FeatureMarquee } from "@/components/marketing/feature-marquee";
 import { Badge, Button, Card, Stat, Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from "@/components/ui";
 
 export const metadata: Metadata = {
@@ -162,25 +163,15 @@ export default function HomePage() {
           </div>
           <p className="text-small text-text-secondary">One-time pricing · Free setup included · You own your app and data</p>
         </div>
-        <Card className="overflow-hidden rounded-[2rem] p-0">
-          <div className="aspect-video bg-white p-5">
-            <div className="flex h-full flex-col justify-between rounded-[1.5rem] bg-slate-950 p-5 text-white shadow-premium">
-              <div className="flex items-center justify-between">
-                <span className="rounded-full bg-white/10 px-3 py-1 text-small">Loglime dashboard in action</span>
-                <span className="rounded-full bg-coral px-3 py-1 text-small">02:15</span>
-              </div>
-              <div className="grid grid-cols-3 gap-3">
-                <div className="h-24 rounded-2xl bg-white/10" />
-                <div className="h-24 rounded-2xl bg-coral/80" />
-                <div className="h-24 rounded-2xl bg-white/10" />
-              </div>
-              <button className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-coral shadow-floating" aria-label="Play demo">
-                <span className="ml-1 h-0 w-0 border-y-[8px] border-l-[12px] border-y-transparent border-l-white" aria-hidden />
-              </button>
-              <p className="text-center text-small text-white/70">See Loglime in action</p>
-            </div>
-          </div>
-        </Card>
+        <div className="overflow-hidden rounded-[2rem] shadow-premium">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/Yx8MHRlvkYk?rel=0&modestbranding=1"
+            title="Loglime — Restaurant App Demo"
+            className="aspect-video w-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
       </section>
 
       <section className="mx-auto grid max-w-page gap-4 px-4 pb-14 md:grid-cols-3 lg:px-8">
@@ -190,20 +181,18 @@ export default function HomePage() {
       </section>
 
       <section className="bg-coral-light py-14">
-        <div className="mx-auto max-w-page px-4 lg:px-8">
-          <div className="max-w-3xl">
-            <h2 className="text-h1 text-text-primary">Your best customers are ordering through someone else&apos;s app.</h2>
-            <p className="mt-4 text-body text-text-secondary">
-              Third-party delivery apps charge 15-30% per order. That&apos;s not a delivery fee — that&apos;s your margin. And when customers order through those platforms, the data goes to the platform, not to you.
-            </p>
-            <p className="mt-4 text-body text-text-secondary">Loglime puts your restaurant back in control. Your own branded app. Your customer data. Your revenue — every penny of it.</p>
-          </div>
+        <div className="mx-auto max-w-page px-4 lg:px-8 text-center">
+          <h2 className="text-h1 text-text-primary mx-auto max-w-3xl">Your best customers are ordering through someone else&apos;s app.</h2>
+          <p className="mt-4 text-body text-text-secondary mx-auto max-w-2xl">
+            Third-party delivery apps charge 15-30% per order. That&apos;s not a delivery fee — that&apos;s your margin. And when customers order through those platforms, the data goes to the platform, not to you.
+          </p>
+          <p className="mt-4 text-body font-semibold text-coral">Loglime puts your restaurant back in control. Your app. Your data. Your revenue.</p>
         </div>
       </section>
 
       <section className="mx-auto max-w-page px-4 py-14 lg:px-8">
-        <div className="max-w-3xl">
-          <h2 className="text-h2 sm:text-h1 text-text-primary">Everything your restaurant needs. Nothing you don&apos;t.</h2>
+        <div className="text-center">
+          <h2 className="text-h2 sm:text-h1 text-text-primary mx-auto max-w-3xl">Everything your restaurant needs. Nothing you don&apos;t.</h2>
         </div>
         <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {features.map((feature) => (
@@ -217,6 +206,8 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <FeatureMarquee />
 
       <section className="bg-white py-14">
         <div className="mx-auto max-w-page px-4 lg:px-8">
@@ -252,12 +243,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-white py-14">
+      <section className="bg-slate-50 py-14">
         <div className="mx-auto max-w-page px-4 lg:px-8">
-          <h2 className="text-h1 text-text-primary">Powerful features to grow your restaurant.</h2>
-          <p className="mt-3 max-w-2xl text-body text-text-secondary">Every tool you need to increase revenue, reduce chaos, and own your customer relationships.</p>
+          <div className="text-center">
+            <h2 className="text-h1 text-text-primary mx-auto max-w-3xl">Powerful features to grow your restaurant.</h2>
+            <p className="mt-3 mx-auto max-w-2xl text-body text-text-secondary">Every tool you need to increase revenue, reduce chaos, and own your customer relationships.</p>
+          </div>
           <div className="mt-8 grid gap-6 lg:grid-cols-3">
-            <div className="rounded-2xl border border-border overflow-hidden">
+            <div className="rounded-2xl bg-white border border-border overflow-hidden shadow-sm">
               <div className="relative w-full" style={{ aspectRatio: "4/3" }}>
                 <Image src="/images/loglime/loyalty-and-offers-loglime.webp" alt="Loyalty Program" fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
               </div>
@@ -266,7 +259,7 @@ export default function HomePage() {
                 <p className="mt-2 text-small text-text-secondary">Build repeat customers with points, stamps, and custom rewards. Increase lifetime value.</p>
               </div>
             </div>
-            <div className="rounded-2xl border border-border overflow-hidden">
+            <div className="rounded-2xl bg-white border border-border overflow-hidden shadow-sm">
               <div className="relative w-full" style={{ aspectRatio: "4/3" }}>
                 <Image src="/images/loglime/qr-launch-channels-loglime.webp" alt="QR Menu" fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
               </div>
@@ -275,7 +268,7 @@ export default function HomePage() {
                 <p className="mt-2 text-small text-text-secondary">No app needed. Customers scan, browse, and order instantly. Perfect for dine-in.</p>
               </div>
             </div>
-            <div className="rounded-2xl border border-border overflow-hidden">
+            <div className="rounded-2xl bg-white border border-border overflow-hidden shadow-sm">
               <div className="relative w-full" style={{ aspectRatio: "4/3" }}>
                 <Image src="/images/loglime/table-booking-apps-loglime.webp" alt="Table Booking" fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
               </div>
@@ -290,7 +283,7 @@ export default function HomePage() {
 
       <section className="bg-coral-light py-14">
         <div className="mx-auto max-w-page px-4 lg:px-8">
-          <h2 className="text-h1 text-text-primary">Restaurants that made the switch.</h2>
+          <h2 className="text-center text-h1 text-text-primary">Restaurants that made the switch.</h2>
           <div className="mt-8 grid gap-5 lg:grid-cols-3">
             {testimonials.map(([quote, person]) => (
               <Card key={person}>
@@ -308,7 +301,7 @@ export default function HomePage() {
           <p className="mx-auto mt-3 max-w-2xl text-center text-body text-text-secondary">Whether you run a single cafe or a growing franchise, Loglime adapts to how your restaurant actually works.</p>
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {segments.map((segment) => (
-              <a key={segment.label} className="group overflow-hidden rounded-2xl bg-surface-alt shadow-card transition hover:shadow-premium" href={segment.href}>
+              <a key={segment.label} className="group overflow-hidden rounded-2xl bg-surface-alt border border-border transition hover:border-coral/30" href={segment.href}>
                 <div className="relative h-48 w-full overflow-hidden">
                   <img src={segment.img} alt={segment.label} className="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
                 </div>
@@ -334,7 +327,7 @@ export default function HomePage() {
 
       <section className="bg-surface-elevated py-14">
         <div className="mx-auto max-w-page px-4 lg:px-8">
-          <h2 className="text-h1 text-text-primary">Why restaurant owners choose Loglime.</h2>
+          <h2 className="text-center text-h1 text-text-primary">Why restaurant owners choose Loglime.</h2>
           <Card className="mt-8">
             <Table>
               <TableHead>
@@ -365,27 +358,37 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-page px-4 py-14 lg:px-8">
-        <h2 className="text-center text-h1 text-text-primary">Common questions.</h2>
-        <div className="mx-auto mt-8 max-w-3xl rounded-2xl bg-white px-5 shadow-card"><FaqAccordion items={faqs} defaultOpen={0} /></div>
-        <Button asChildHack="a" href="/faq" className="mt-8" variant="secondary">
-          See all FAQ
-        </Button>
+      <section className="bg-white py-14">
+        <div className="mx-auto max-w-page px-4 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-h1 text-text-primary">Common questions.</h2>
+            <p className="mt-3 text-body text-text-secondary">Everything you need to know before getting started.</p>
+          </div>
+          <div className="mx-auto max-w-3xl divide-y divide-border rounded-2xl bg-white shadow-card">
+            <FaqAccordion items={faqs} defaultOpen={0} />
+          </div>
+          <div className="mt-8 text-center">
+            <Button asChildHack="a" href="/faq" variant="secondary">
+              See all FAQs
+            </Button>
+          </div>
+        </div>
       </section>
 
       <section className="px-4 py-14 lg:px-8">
-        <div className="mx-auto max-w-page rounded-2xl bg-coral px-6 py-12 text-center text-white shadow-floating">
-          <h2 className="mx-auto max-w-3xl text-h1">Start building your restaurant&apos;s direct ordering channel today.</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-body text-white/85">Join restaurants who&apos;ve moved away from commission-heavy platforms and started growing on their own terms.</p>
-          <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+        <div className="mx-auto max-w-page rounded-3xl bg-coral px-6 py-16 text-center text-white shadow-floating">
+          <p className="text-small font-semibold uppercase tracking-widest text-white/70 mb-4">Ready to get started?</p>
+          <h2 className="mx-auto max-w-3xl text-h1">Stop paying commissions. Start keeping your revenue.</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-body text-white/85">Join 120+ restaurants who&apos;ve launched their own branded app with Loglime. One-time price from $149.</p>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <Button asChildHack="a" href="/pricing" variant="secondary">
               View packages from $149
             </Button>
-            <Button asChildHack="a" href="/demo" className="bg-white/15 text-white hover:bg-white/20">
+            <Button asChildHack="a" href="/demo" className="bg-white/15 text-white hover:bg-white/25 border border-white/20">
               Book a demo first
             </Button>
           </div>
-          <p className="mt-5 text-small text-white/75">One-time pricing · Free setup · Live support during launch</p>
+          <p className="mt-5 text-small text-white/70">One-time pricing · Free setup · Live support during launch</p>
         </div>
       </section>
     </main>

@@ -27,16 +27,16 @@ const solutions = [
 ];
 
 const resources = [
-  { label: "Blog", href: "/blog", icon: "hgi-blogger" },
-  { label: "Case Studies", href: "/blog/case-studies", icon: "hgi-analytics-up" },
-  { label: "Guides", href: "/blog/online-ordering", icon: "hgi-book-open-01" },
-  { label: "Help Center", href: "/faq", icon: "hgi-customer-support" },
+  { label: "Blog", href: "/blog", icon: "hgi-quill-write-02" },
+  { label: "Case Studies", href: "/blog/case-studies", icon: "hgi-chart-increase" },
+  { label: "Guides", href: "/blog/online-ordering", icon: "hgi-book-02" },
+  { label: "Help Center", href: "/faq", icon: "hgi-headphone" },
 ];
 
 const company = [
-  { label: "About", href: "/about", icon: "hgi-building-06" },
-  { label: "Contact", href: "/contact", icon: "hgi-mail-01" },
-  { label: "Legal Center", href: "/legal", icon: "hgi-license" },
+  { label: "About", href: "/about", icon: "hgi-information-circle" },
+  { label: "Contact", href: "/contact", icon: "hgi-sent" },
+  { label: "Legal Center", href: "/legal", icon: "hgi-shield-check" },
 ];
 
 function MenuRow({ item }: { item: { icon: string; name: string; desc: string; href: string } }) {
@@ -252,11 +252,8 @@ export function MarketingHeader() {
           <Button asChildHack="a" href="https://app.loglime.com/login" variant="ghost">
             Login
           </Button>
-          <Button asChildHack="a" href="/demo" variant="secondary">
-            Book Demo
-          </Button>
-          <Button asChildHack="a" href="/demo">
-            Start Free Trial
+          <Button asChildHack="a" href="/pricing">
+            Get Started
           </Button>
         </div>
         <button className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 lg:hidden" onClick={() => setMobileOpen(true)} aria-label="Open menu">

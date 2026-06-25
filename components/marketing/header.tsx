@@ -143,7 +143,7 @@ function DesktopMenuButton({ label, menuKey, openKey, onOpen, children }: { labe
   const open = openKey === menuKey;
 
   function scheduleClose() {
-    closeTimer.current = setTimeout(() => onOpen(null), 150);
+    closeTimer.current = setTimeout(() => onOpen(null), 200);
   }
 
   function cancelClose() {
@@ -152,12 +152,17 @@ function DesktopMenuButton({ label, menuKey, openKey, onOpen, children }: { labe
   }
 
   return (
-    <div className="relative" onMouseEnter={cancelClose} onMouseLeave={scheduleClose}>
+    <div
+      className="relative"
+      onMouseEnter={cancelClose}
+      onMouseLeave={scheduleClose}
+      onMouseMove={cancelClose}
+    >
       <button className="inline-flex h-11 items-center gap-1 rounded-full px-3 text-small font-semibold text-text-secondary transition hover:bg-slate-100 hover:text-coral" aria-haspopup="menu" aria-expanded={open} onFocus={() => onOpen(menuKey)}>
         {label}
         <i className={cn("hgi-stroke hgi-arrow-down-01 text-xs transition", open && "rotate-180")} />
       </button>
-      {open ? children : null}
+      {open ? <div onMouseEnter={cancelClose} onMouseLeave={scheduleClose}>{children}</div> : null}
     </div>
   );
 }

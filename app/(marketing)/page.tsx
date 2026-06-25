@@ -74,7 +74,14 @@ const testimonials = [
   ["We launched our loyalty program last quarter. Repeat visits went up 41% in 60 days.", "Ahmed R., Owner, Mezze House"],
 ];
 
-const segments = ["Cafes & Coffee Shops", "Bakeries & Patisseries", "Quick-Service Restaurants", "Dine-In Restaurants", "Cloud & Ghost Kitchens", "Franchise & Multi-Location"];
+const segments = [
+  { label: "Cafes & Coffee Shops", href: "/solutions/cafes", img: "/images/Coffee Ordering SYstem.webp" },
+  { label: "Bakeries & Patisseries", href: "/solutions/bakeries", img: "/images/Bakery.webp" },
+  { label: "Quick-Service Restaurants", href: "/solutions/qsr", img: "/images/Restaurant Ordering System.webp" },
+  { label: "Dine-In Restaurants", href: "/solutions/dine-in", img: "/images/Inside Restaurant.webp" },
+  { label: "Cloud & Ghost Kitchens", href: "/solutions/cloud-kitchen", img: "/images/Restaurant Kitchen Management.webp" },
+  { label: "Franchise & Multi-Location", href: "/solutions/franchise", img: "/images/Restaurant Ouside.webp" },
+];
 
 const steps = [
   ["01", "Tell us about your restaurant", "Book a quick 30-minute walkthrough. We learn about your menu, your goals, and the products you need. No technical knowledge required."],
@@ -301,8 +308,11 @@ export default function HomePage() {
           <p className="mx-auto mt-3 max-w-2xl text-center text-body text-text-secondary">Whether you run a single cafe or a growing franchise, Loglime adapts to how your restaurant actually works.</p>
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {segments.map((segment) => (
-              <a key={segment} className="rounded-2xl bg-surface-alt p-5 text-h3 text-text-primary shadow-card transition hover:text-coral" href="/solutions">
-                {segment}
+              <a key={segment.label} className="group overflow-hidden rounded-2xl bg-surface-alt shadow-card transition hover:shadow-premium" href={segment.href}>
+                <div className="relative h-48 w-full overflow-hidden">
+                  <img src={segment.img} alt={segment.label} className="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+                </div>
+                <p className="p-5 text-h3 text-text-primary transition group-hover:text-coral">{segment.label}</p>
               </a>
             ))}
           </div>

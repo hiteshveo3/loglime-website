@@ -9,14 +9,14 @@ export function FaqAccordion({ items, defaultOpen = 0 }: { items: FaqItem[]; def
   const [openIndex, setOpenIndex] = useState<number | null>(defaultOpen);
 
   return (
-    <div className="divide-y divide-border border-y border-border">
+    <div className="divide-y divide-border">
       {items.map((item, index) => {
         const open = openIndex === index;
         const answerId = `faq-answer-${index}-${item.question.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
         return (
           <div key={item.question}>
             <button
-              className="flex min-h-16 w-full items-center justify-between gap-5 py-5 text-left"
+              className="flex min-h-16 w-full items-center justify-between gap-5 px-6 py-5 text-left"
               onClick={() => setOpenIndex(open ? null : index)}
               aria-expanded={open}
               aria-controls={answerId}
@@ -30,7 +30,7 @@ export function FaqAccordion({ items, defaultOpen = 0 }: { items: FaqItem[]; def
               </span>
             </button>
             {open ? (
-              <div id={answerId} className="pb-6 pl-5 pr-14 text-[1.0625rem] leading-[1.8] text-text-secondary">
+              <div id={answerId} className="pb-6 pl-[3.75rem] pr-6 text-[1.0625rem] leading-[1.8] text-text-secondary">
                 {item.answer}
               </div>
             ) : null}

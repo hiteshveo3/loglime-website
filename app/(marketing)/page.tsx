@@ -3,7 +3,6 @@ import Script from "next/script";
 import Image from "next/image";
 
 import { FaqAccordion } from "@/components/marketing/faq-accordion";
-import { VideoEmbed } from "@/components/marketing/video-embed";
 import { Badge, Button, Card, Stat } from "@/components/ui";
 
 export const metadata: Metadata = {
@@ -161,8 +160,22 @@ export default function HomePage() {
           </div>
           <p className="text-small text-text-secondary">One-time pricing · Free setup included · You own your app and data</p>
         </div>
-        <div className="overflow-hidden rounded-[2rem] shadow-premium">
-          <VideoEmbed videoId="dQw4w9WgXcQ" title="Loglime — Restaurant App Demo" />
+        <div className="relative overflow-hidden rounded-[2rem] shadow-premium" style={{ aspectRatio: "16/9" }}>
+          <img
+            src="/images/Restaurant Online Ordering.webp"
+            alt="Restaurant ordering app"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+          <a
+            href="/demo"
+            className="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-2 rounded-full bg-white/90 px-5 py-2.5 text-small font-semibold text-text-primary backdrop-blur-sm shadow-card hover:bg-white transition"
+          >
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-coral">
+              <svg viewBox="0 0 24 24" fill="white" className="h-3.5 w-3.5 translate-x-px"><path d="M8 5v14l11-7z" /></svg>
+            </span>
+            Watch 2-min demo
+          </a>
         </div>
       </section>
 
@@ -360,7 +373,7 @@ export default function HomePage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-surface-alt py-16" style={{ backgroundImage: "radial-gradient(circle, #edf2f7 1.5px, transparent 1.5px)", backgroundSize: "28px 28px" }}>
+      <section className="bg-surface-alt py-16">
         <div className="mx-auto max-w-page px-4 lg:px-8">
           <div className="text-center">
             <a href="/faq" className="inline-flex items-center gap-1.5 text-small font-semibold text-coral hover:underline">
@@ -369,7 +382,7 @@ export default function HomePage() {
             <h2 className="mt-3 text-[3rem] font-bold leading-tight text-text-primary">Common questions.</h2>
             <p className="mt-3 text-body text-text-secondary">Everything you need to know before getting started.</p>
           </div>
-          <div className="mx-auto mt-10 max-w-3xl">
+          <div className="mx-auto mt-10 max-w-3xl overflow-hidden rounded-2xl border border-border bg-white shadow-card">
             <FaqAccordion items={faqs} defaultOpen={0} />
           </div>
         </div>

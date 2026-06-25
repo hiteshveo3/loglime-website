@@ -28,9 +28,9 @@ const solutions = [
 
 const resources = [
   { label: "Blog", href: "/blog", icon: "hgi-pencil-edit-02" },
-  { label: "Case Studies", href: "/blog/case-studies", icon: "hgi-bar-chart-01" },
+  { label: "Case Studies", href: "/blog/case-studies", icon: "hgi-chart-up-01" },
   { label: "Guides", href: "/blog/online-ordering", icon: "hgi-compass-01" },
-  { label: "Help Center", href: "/faq", icon: "hgi-headphones-02" },
+  { label: "Help Center", href: "/faq", icon: "hgi-help-circle" },
 ];
 
 const company = [

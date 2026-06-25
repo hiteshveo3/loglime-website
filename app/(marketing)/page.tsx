@@ -162,7 +162,7 @@ export default function HomePage() {
           <p className="text-small text-text-secondary">One-time pricing · Free setup included · You own your app and data</p>
         </div>
         <div className="overflow-hidden rounded-[2rem] shadow-premium">
-          <VideoEmbed videoId="GswBF_EJmYM" title="Loglime — Restaurant App Demo" />
+          <VideoEmbed videoId="dQw4w9WgXcQ" title="Loglime — Restaurant App Demo" />
         </div>
       </section>
 
@@ -194,7 +194,6 @@ export default function HomePage() {
           <style dangerouslySetInnerHTML={{ __html: `
             @keyframes scroll-features { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
             .features-track { display: flex; width: max-content; animation: scroll-features 28s linear infinite; }
-            .features-track:hover { animation-play-state: paused; }
           ` }} />
           <div className="features-track">
             {doubled.map((item, i) => (
@@ -361,16 +360,16 @@ export default function HomePage() {
       </section>
 
       {/* FAQ */}
-      <section className="relative overflow-hidden bg-surface-alt py-16" style={{ backgroundImage: "radial-gradient(circle, #e2e8f0 1.5px, transparent 1.5px)", backgroundSize: "28px 28px" }}>
+      <section className="bg-surface-alt py-16" style={{ backgroundImage: "radial-gradient(circle, #edf2f7 1.5px, transparent 1.5px)", backgroundSize: "28px 28px" }}>
         <div className="mx-auto max-w-page px-4 lg:px-8">
           <div className="text-center">
             <a href="/faq" className="inline-flex items-center gap-1.5 text-small font-semibold text-coral hover:underline">
               See all FAQs <i className="hgi-stroke hgi-arrow-right-01 text-xs" />
             </a>
-            <h2 className="mt-3 text-[2.75rem] font-bold leading-tight text-text-primary">Common questions.</h2>
+            <h2 className="mt-3 text-[3rem] font-bold leading-tight text-text-primary">Common questions.</h2>
             <p className="mt-3 text-body text-text-secondary">Everything you need to know before getting started.</p>
           </div>
-          <div className="mx-auto mt-10 max-w-3xl rounded-2xl bg-white px-6 py-2 shadow-card">
+          <div className="mx-auto mt-10 max-w-3xl">
             <FaqAccordion items={faqs} defaultOpen={0} />
           </div>
         </div>

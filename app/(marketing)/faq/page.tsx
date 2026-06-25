@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 
-import { DocumentToc } from "@/components/marketing/document-toc";
 import { FaqAccordion } from "@/components/marketing/faq-accordion";
 import { getFaqCategories } from "@/lib/faqs";
 
@@ -29,8 +28,6 @@ export default function FaqPage() {
       })),
     ),
   };
-  const headings = categories.map((category) => ({ id: category.slug, label: category.name, level: 2 as const }));
-
   return (
     <main className="bg-white">
       <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
@@ -48,22 +45,17 @@ export default function FaqPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-page gap-8 px-4 py-10 lg:grid-cols-[260px_minmax(0,1fr)] lg:px-8 lg:py-14">
-        <DocumentToc headings={headings} />
-        <div className="min-w-0 max-w-[960px]">
-          {categories.map((category, categoryIndex) => (
-            <section key={category.slug} id={category.slug} className="scroll-mt-28 border-b border-border py-10 first:pt-0 last:border-0">
-              <div className="mb-5 flex items-end justify-between gap-4">
-                <div>
-                  <p className="text-caption uppercase tracking-wider text-coral">Category {categoryIndex + 1}</p>
-                  <h2 className="mt-2 text-h2 capitalize text-text-primary">{category.name.toLowerCase()}</h2>
-                </div>
-                <span className="text-small font-semibold text-text-muted">{category.items.length} answers</span>
-              </div>
-              <FaqAccordion items={category.items} defaultOpen={categoryIndex === 0 ? 0 : null} />
-            </section>
-          ))}
-        </div>
+      <section className="mx-auto max-w-3xl px-4 py-10 lg:px-8 lg:py-14">
+        {categories.map((category, categoryIndex) => (
+          <section key={category.slug} id={category.slug} className="scroll-mt-28 border-b border-border py-10 first:pt-0 last:border-0">
+            <div className="mb-6 text-center">
+              <p className="text-small font-semibold uppercase tracking-widest text-coral">Category {categoryIndex + 1}</p>
+              <h2 className="mt-2 text-h2 capitalize text-text-primary">{category.name.toLowerCase()}</h2>
+              <p className="mt-1 text-small text-text-muted">{category.items.length} answers</p>
+            </div>
+            <FaqAccordion items={category.items} defaultOpen={categoryIndex === 0 ? 0 : null} />
+          </section>
+        ))}
       </section>
     </main>
   );

@@ -76,10 +76,13 @@ const steps = [
 ];
 
 const faqs = [
-  { question: "Do I need technical experience to use Loglime?", answer: "None at all. Our team handles the entire setup process. You provide your menu, branding, and preferences — we do everything else." },
-  { question: "How long does it take to go live?", answer: "Most restaurants launch on Android within 7–10 business days. iOS typically takes 10–14 business days because of Apple's review process." },
-  { question: "Are there really no commissions or monthly SaaS fees?", answer: "Yes. Loglime's launch packages are one-time purchases. Standard payment processing and required Google or Apple developer account charges are paid directly to those platforms." },
-  { question: "Can I use Loglime alongside my existing POS?", answer: "Yes. Loglime can work alongside your current operations, with integration requirements confirmed during setup." },
+  { question: "Do I need technical experience to use Loglime?", answer: "None at all. Our team handles the entire setup process — app setup, menu upload, branding configuration, and publishing. You just provide your menu and preferences." },
+  { question: "How long does it take to go live?", answer: "Most restaurants launch on Android within 7–10 business days. iOS typically takes 10–14 business days because of Apple's review process. We keep you updated every step of the way." },
+  { question: "Are there really no commissions or monthly SaaS fees?", answer: "Yes. Loglime's launch packages are one-time purchases. You keep 100% of every order. Standard payment processing fees and required Google or Apple developer account charges are paid directly to those platforms — not to us." },
+  { question: "Can I use Loglime alongside my existing POS?", answer: "Yes. Loglime works alongside your current operations. We confirm integration requirements during the initial setup call and configure accordingly." },
+  { question: "Do customers need to download an app to order?", answer: "No. Customers can order through your website, a QR code menu, or your branded app — all options are included. They choose what's most convenient for them." },
+  { question: "What happens to my customer data?", answer: "All customer data — orders, preferences, loyalty points, and contact details — belongs entirely to you. Loglime never sells or shares your data. You can export it at any time." },
+  { question: "What if I want to update my menu or prices?", answer: "You can update your menu, prices, photos, and item availability in real time through the Loglime admin panel. Changes go live instantly — no need to contact us." },
 ];
 
 const comparisonRows = [
@@ -166,15 +169,17 @@ export default function HomePage() {
             alt="Restaurant ordering app"
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+          {/* Center play button */}
           <a
             href="/demo"
-            className="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-2 rounded-full bg-white/90 px-5 py-2.5 text-small font-semibold text-text-primary backdrop-blur-sm shadow-card hover:bg-white transition"
+            className="absolute inset-0 flex flex-col items-center justify-center gap-3 group"
+            aria-label="Watch demo"
           >
-            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-coral">
-              <svg viewBox="0 0 24 24" fill="white" className="h-3.5 w-3.5 translate-x-px"><path d="M8 5v14l11-7z" /></svg>
+            <span className="flex h-20 w-20 items-center justify-center rounded-full bg-white/90 backdrop-blur-sm shadow-premium transition duration-300 group-hover:scale-110 group-hover:bg-white">
+              <svg viewBox="0 0 24 24" fill="#FF5A5F" className="h-8 w-8 translate-x-0.5"><path d="M8 5v14l11-7z" /></svg>
             </span>
-            Watch 2-min demo
+            <span className="rounded-full bg-black/50 px-5 py-2 text-small font-semibold text-white backdrop-blur-sm">Watch 2-min demo</span>
           </a>
         </div>
       </section>
@@ -330,16 +335,18 @@ export default function HomePage() {
       </section>
 
       {/* Steps */}
-      <section className="mx-auto max-w-page px-4 py-10 lg:px-8">
-        <h2 className="mx-auto max-w-3xl text-center text-h1 text-text-primary">From conversation to customers ordering in three simple steps.</h2>
-        <div className="mt-8 grid gap-5 lg:grid-cols-3">
-          {steps.map(([number, title, body]) => (
-            <Card key={number}>
-              <p className="text-h2 text-coral">{number}</p>
-              <h3 className="mt-4 text-h3 text-text-primary">{title}</h3>
-              <p className="mt-3 text-body text-text-secondary">{body}</p>
-            </Card>
-          ))}
+      <section className="bg-white px-4 py-14 lg:px-8">
+        <div className="mx-auto max-w-page">
+          <h2 className="mx-auto max-w-3xl text-center text-h1 text-text-primary">From conversation to customers ordering in three simple steps.</h2>
+          <div className="mt-8 grid gap-5 lg:grid-cols-3">
+            {steps.map(([number, title, body]) => (
+              <Card key={number}>
+                <p className="text-h2 text-coral">{number}</p>
+                <h3 className="mt-4 text-h3 text-text-primary">{title}</h3>
+                <p className="mt-3 text-body text-text-secondary">{body}</p>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -382,7 +389,7 @@ export default function HomePage() {
             <h2 className="mt-3 text-[3rem] font-bold leading-tight text-text-primary">Common questions.</h2>
             <p className="mt-3 text-body text-text-secondary">Everything you need to know before getting started.</p>
           </div>
-          <div className="mx-auto mt-10 max-w-3xl overflow-hidden rounded-2xl border border-border bg-white shadow-card">
+          <div className="mx-auto mt-10 max-w-4xl overflow-hidden rounded-2xl border border-border bg-white shadow-card">
             <FaqAccordion items={faqs} defaultOpen={0} />
           </div>
         </div>

@@ -31,7 +31,6 @@ const resources = [
   { label: "Case Studies", href: "/blog/case-studies", icon: "hgi-analytics-up" },
   { label: "Guides", href: "/blog/online-ordering", icon: "hgi-book-open-01" },
   { label: "Help Center", href: "/faq", icon: "hgi-customer-support" },
-  { label: "FAQ", href: "/faq", icon: "hgi-help-circle" },
 ];
 
 const company = [
